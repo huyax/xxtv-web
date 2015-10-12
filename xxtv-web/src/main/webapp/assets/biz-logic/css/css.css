@@ -1,0 +1,74 @@
+/* CSS Document */
+*{ margin:0px auto; padding:0px; list-style:none; border:none; text-decoration:none; font-family:"微软雅黑"; font-size:14px;}
+a{overflow :hidden ;text-overflow:ellipsis; white-space:nowrap;}
+h1{ display:none;}
+.nav{background:url(../img/nav-bk.png) bottom repeat-x; height:60px; clear:both;left: 0px; top:0px; position: fixed !important;position:static;width:100%;z-index:10;}
+.nav ul{position:relative;width:960px; height:60px; line-height:60px;}
+.nav li{float:left; line-height:60px; height:60px; margin:0px 10px;}
+.nav li img{ margin-top:10px;}
+.nav li a{ font-size:20px; color:#E6722A; font-weight:bold;}
+
+.main{ width:960px; height:600px; background:#000000; margin-top:60px; padding:2px;}
+.bofang{width:640px;height:502px; float:left;}
+.bdgg{width:300px; height:250px; background:#666666; margin:1px; float:right;}
+.bdgg-d{width:960px; height:90px; background:#666666;}
+.clear{ clear:both;}
+
+
+.content{ width:940px; height:700px; border:#CCCCCC 1px solid; margin-top:10px; padding:10px;}
+.content img{ border:#CCCCCC 1px solid; padding:1px;}
+.content h3{ color:#F65198; margin-top:10px;}
+
+.side-l{ float:left; width:255px; height:660px;}
+.jiemu-l{ margin-top:10px;}
+.jiemu-l p{color: #444444; width:255px;line-height:23px; }
+.jiemu-l p b{ color: #333333;}
+.jiemu-l h2 a{ font-size:16px; color:#333333; height:30px; line-height:30px;}
+.jiemu-l ul{ width:255px; height:auto; border-top:2px solid #008738; padding-top:5px;}
+.jiemu-l ul li{ border-bottom:#008738 1px dotted; width:250px; height:30px; }
+.jiemu-l ul li a{ color:#444444;line-height:30px; width:240px; height:30px; display:block; padding-left:10px;}
+.jiemu-l ul li a:hover{ color: #FFFFFF; background:#008738;line-height:30px; width:240px; height:30px;padding-left:10px;}
+.side-z { width:410px; margin-left:260px; margin-top:20px;}
+.side-z ul li{ float:left; margin:5px; text-align:center; width:118px; height:220px;}
+.side-z ul li p { font-size:16px; color:#444444; height:30px; line-height:30px;}
+.side-z ul li span a{ color: #999999; font-size:12px; width:120px; height:23px; display:block;} 
+.side-z ul li img{ width:115px; height:155px; border:1px solid #CCCCCC; padding:2px;}
+.side-r{ float:right; width:270px; height:660px;}
+.side-r ul{ width:270px; height:auto;border-top:2px solid #008738; margin-top:5px;}
+.side-r ul li{ border-bottom:#008738 1px dotted; width:270px; height:30px; }
+.side-r ul li a{ color:#444444;line-height:30px; width:260px; height:30px; display:block; padding-left:10px;}
+.side-r ul li a:hover{ color: #FFFFFF; background:#008738;line-height:30px; width:260px; height:30px;padding-left:10px;}
+
+
+.list-content{ margin-top:70px; width:960px;}
+.place a{ color:#444444;}
+.jiemu-info {width:580px; float:left;border:1px solid #CCCCCC; height:auto; padding:5px;}
+.jiemu-info .jj{ height:133px;line-height:28px;}
+.jiemu-info img{ width:115px; height:155px;float:left;padding:2px; border:1px solid #CCCCCC; margin-right:10px;}
+.jiemu-info ul { border-top:#008738 2px solid; margin-top:10px; }
+.jiemu-info ul li{border:#008738 1px dotted; width:270px; height:30px; line-height:30px; margin:5px; float:left;}
+.jiemu-info ul li a{ color:#444444;line-height:30px; width:260px; height:30px; display:block; padding-left:10px;}
+.jiemu-info ul li a:hover{ color: #FFFFFF; background:#008738;line-height:30px; width:260px; height:30px;padding-left:10px;}
+.fanye{ width:560px; height:30px; }
+.fanye li{ float:left; margin:8px 0px;}
+.fanye li a{ padding:2px 5px;; margin:5px; background:#008738; color:#FFFFFF;}
+.fanye .thisclass a{ background:#FFFFFF; color:#000000;}
+.list-bdgg-y{ width:570px; height:60px; background:#CCCCCC; margin-top:9px;}
+.list-lanmu{width:360px; height:200px;}
+.list-lanmu p{ color:#E6722A; font-size:20px; border-bottom:#E6722A 2px solid;}
+.list-lanmu li { margin:5px;width:80px; height:30px;float:left;}
+.list-lanmu li h3{width:80px; height:30px; line-height:30px; text-align:center;}
+.list-lanmu li h3 a{ width:80px; height:30px;background:#E6722A; color:#FFFFFF; font-size:12px; display:block;}
+.list-lanmu li h3 a:hover{ color:#E6722A; background:#FFFFFF; border:#E6722A 1px dotted;} 
+.list-gg{ width:360px; height:auto; float:right;}
+.list-bdgg{ width:360px; height:300px; background:#CCCCCC; margin-bottom:10px;}
+
+.dizhi{color:#444444;}
+.dizhi a{color:#444444;}
+.bofang-1{ width:100%; height:620px;}
+.article{ width:960px; height:auto;}
+.article-content{ display:none;}
+.article-bdgg{ width:960px; height:90px; background:#CCCCCC; margin:1px;}
+.footer{ width:960px; text-align:center; margin-top:20px; font-size:12px;}
+.news{ width:940px; height:auto; line-height:23px; margin-top:65px; border:#CCCCCC 1px solid; padding:10px;}
+.news h2{ width:940px; font-size:20px; text-align: center; height:50px; line-height:50px; border-bottom:#CCCCCC 1px dotted;}

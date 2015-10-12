@@ -1,0 +1,11 @@
+package ${package};
+
+import com.jfinal.plugin.activerecord.Model;
+import com.yingmob.core.plugin.annotation.Table;
+
+@SuppressWarnings("serial")
+@Table(tableName = "${tableName}")
+public class ${className} extends Model<${className}> {
+	public static final ${className} dao = new ${className}();
+
+}

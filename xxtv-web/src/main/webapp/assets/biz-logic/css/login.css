@@ -1,0 +1,161 @@
+body {
+	padding: 0px;
+	margin: 0px;
+	background-color: #4f8c40;
+}
+
+#box-center {
+	margin: 0px;
+	padding: 0px;
+	width: 1128px;
+	height: 710px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.box-center-lef {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 59px;
+	height: 710px;
+	overflow: hidden;
+}
+
+.box-center-cen {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 1010px;
+	height: 710px;
+	background: url(../images/zhjian_03.jpg) repeat-x;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.tw {
+	margin: 0px;
+	padding: 0px;
+	width: 556px;
+	margin: 0 auto;
+	position: relative;
+	margin-top: 72px;
+}
+
+.tu {
+	width: 556px;
+	height: 277px;
+}
+
+.wen {
+	width: 556px;
+	height: 160px;
+	position: absolute;
+	top: 288px;
+	overflow: hidden;
+}
+
+#wen-top {
+	margin: 0px;
+	padding: 0px;
+	width: 360px;
+	height: 32px;
+	position: relative;
+	margin-top: 6px;
+	margin-left: 92px;
+}
+
+#ming {
+	float: left;
+	width: 60px;
+	height: 32px;
+	padding-top: 8px;
+	color: #FFFFFF;
+}
+
+#kuang {
+	float: left;
+	width: 296px;
+	margin: 0px;
+	padding: 0px;
+	height: 32px;
+	background: url(../images/yhm_03.jpg) no-repeat;
+}
+
+#kuang input {
+	width: 290px;
+	height: 30px;
+	line-height: 27px;
+	padding-top: 1px;
+	padding-left: 2px;
+	border: 0px;
+	background-color: transparent;
+	overflow: hidden
+}
+
+#wen-dow {
+	width: 400px;
+	height: 32px;
+	position: relative;
+	margin-top: 32px;
+	margin-left: 92px;
+}
+
+#mima {
+	float: left;
+	width: 60px;
+	height: 32px;
+	padding-top: 8px;
+	margin: 0px;
+	color: #FFFFFF;
+}
+
+#mikuang {
+	float: left;
+	width: 130px;
+	height: 32px;
+	background: url(../images/mimak_06.jpg) no-repeat;
+}
+
+#mikuang input {
+	width: 125px;
+	height: 30px;
+	line-height: 27px;
+	padding-top: 1px;
+	padding-left: 2px;
+	border: 0px;
+	background-color: transparent;
+	overflow: hidden
+}
+
+#login {
+	float: left;
+	width: 200px;
+	height: 32px;
+	text-align: center;
+}
+
+.login1 {
+	float: left;
+	border-style: none;
+	margin: 0 18px;
+}
+
+.login2 {
+	float: left;
+	border-style: none;
+}
+
+.submit {
+	background: url("../images/login_05.jpg") center center no-repeat;
+	width: 65px;
+	height: 30px;
+	border: 0px;
+}
+
+.reset {
+	background: url("../images/rep_07.jpg") center center no-repeat;
+	width: 65px;
+	height: 30px;
+	border: 0px;
+}

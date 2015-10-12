@@ -1,0 +1,25 @@
+package ${package};
+
+import com.jfinal.core.Controller;
+import com.jfinal.log.Logger;
+import com.yingmob.core.plugin.annotation.Control;
+import com.yingmob.tools.ResultJson;
+
+@Control(controllerKey = "/${classNameSmall}")
+public class ${className}Controller extends Controller {
+
+	private static final Logger LOG = Logger.getLogger(${className}Controller.class);
+	
+	public void report() {
+		ResultJson rj = new ResultJson(false, "失败", null);
+		try {
+			rj.setIsok(true);
+			rj.setMsg("成功");
+		} catch (Exception e) {
+			LOG.error("${className}Controller-report[失败]", e);
+		}
+		renderJson(rj);
+	}
+}
+
+

@@ -1,0 +1,43 @@
+<script type="text/javascript">
+var _basePath = '${base}';
+var _location = document.location;
+var _rootPath = _location.protocol + '//' + _location.hostname;
+	_rootPath+= _location.port == '' ? '' : ':' + _location.port;
+	_rootPath+= _basePath;
+window.rootPath = _rootPath;
+window.resVersion = '${v}';
+<% if(has(user)){ %>
+	window.user = {
+		nick:'${user.nick!}', 
+		id:'${user.id!}', 
+		username:'${user.username!}', 
+		email:'${user.email!}'
+	};
+<%}%>
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="${base}/assets/common/easyui/themes/metro-green/easyui.css">
+<link type="text/css" rel="stylesheet" href="${base}/assets/common/easyui/themes/icon.css">
+<link type="text/css" rel="stylesheet" href="${base}/assets/common/ztree/css/zTreeStyle/zTreeStyle.css" />
+<link type="text/css" rel="stylesheet" href="${base}/assets/common/asyncbox/skins/ZCMS/asyncbox.css" />
+<link type="text/css" rel="stylesheet" href="${base}/assets/common/poshytip/tip-yellowsimple/tip-yellowsimple.css" />
+<link type="text/css" rel="stylesheet" href="${base}/assets/biz-logic/css/ad-style.css" />
+<script type="text/javascript" src="${base}/assets/common/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="${base}/assets/common/form/jquery.form.js"></script>
+<script type="text/javascript" src="${base}/assets/common/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="${base}/assets/common/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="${base}/assets/common/ztree/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="${base}/assets/common/fileUpload/ajaxfileupload.js"></script>
+<script type="text/javascript" src="${base}/assets/common/asyncbox/AsyncBox.v1.4.5.js"></script>
+<script type="text/javascript" src="${base}/assets/common/DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="${base}/assets/common/poshytip/jquery.poshytip.min.js"></script>
+<script type="text/javascript" src="${base}/assets/common/flupload/plupload.full.min.js"></script>
+<script type="text/javascript" src="${base}/assets/biz-logic/js/ad-plugin.js"></script>
+<script type="text/javascript" 
+src="${base}/assets/biz-logic/js/excelTool.js"></script>
+<% if(has(cssPath)){ %>
+	<link type="text/css" rel="stylesheet" href="${base}/assets/${cssPath}${v}" />
+<% } 
+   if(has(jsPath)){ %>
+	<script type="text/javascript" src="${base}/assets/${jsPath}${v}"></script>
+<% } %>

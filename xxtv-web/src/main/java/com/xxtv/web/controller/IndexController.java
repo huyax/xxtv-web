@@ -1,5 +1,6 @@
 package com.xxtv.web.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,8 +44,15 @@ public class IndexController extends BaseController
 
 	public void live()
 	{
+		String nick = getPara("nick");
+		try {
+			nick = new String(nick.getBytes("iso8859-1"),"UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		setAttr("uid", getPara("uid"));
-		setAttr("nick", getPara("nick"));
+		setAttr("nick", nick);
 		setAttr("id", getPara("id"));
 		render("live");
 	}

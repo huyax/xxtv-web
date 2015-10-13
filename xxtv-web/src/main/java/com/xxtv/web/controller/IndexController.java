@@ -18,7 +18,7 @@ public class IndexController extends BaseController {
 			.getLogger(IndexController.class);
 
 	public void index() {
-		dota2();
+		render("index");
 	}
 
 	public void dota2() {
@@ -31,13 +31,13 @@ public class IndexController extends BaseController {
 						HashMap.class);
 				setAttr("list", mapList);
 			}
-			render("index");
+			render("dota2");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			if (LOGGER.isErrorEnabled()) {
 				LOGGER.error("index异常：{}", e);
 			}
-			render("index");
+			render("dota2");
 		}
 	}
 

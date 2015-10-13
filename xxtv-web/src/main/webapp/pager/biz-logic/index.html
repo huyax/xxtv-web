@@ -19,7 +19,7 @@
 
 	<div class="maxtopbar">
 	<div class="nav-head" style="width: 100%;">
-		<div style="width: 1100px;margin-left: auto;margin-right: auto;height: 46px;text-align: left;"><a href="${base}"><li>DOTA2</li></a><a href="${base}/lol"><li>LOL</li></a></div>
+		<div style="width: 1100px;margin-left: auto;margin-right: auto;height: 46px;text-align: left;"><a href="${base}/"><li class="h-active">DOTA2</li></a><a href="${base}/lol"><li>LOL</li></a></div>
 	</div>
 		<div class="maxtopmainbar">
 			<div
@@ -50,7 +50,7 @@
 							<%for(item in list){%>
 								<div class="live-box"
 									style="width: 240px; margin: 10px 10px 10px 0px;">
-									<a href="${base}/live?id=${item.room_id}&nick=${item.nickname}&uid=${item.owner_uid}"
+									<a href="${base}/live/dota2?id=${item.room_id}&nick=${item.nickname}&uid=${item.owner_uid}"
 										target="_blank"><div
 											style="padding: 0px; margin: 0px; font-size: 0px; line-height: 0px; position: relative;">
 											<img style="width: 242px; height: 130px;"

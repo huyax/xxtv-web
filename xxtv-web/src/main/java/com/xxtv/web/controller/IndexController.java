@@ -86,7 +86,7 @@ public class IndexController extends BaseController
 	public void live_lol()
 	{
 		String sNick = getPara("sNick");
-		/*try
+		try
 		{
 			sNick = new String(sNick.getBytes("iso8859-1"), "UTF-8");
 		}
@@ -94,7 +94,7 @@ public class IndexController extends BaseController
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		setAttr("lChannelId", getPara("lChannelId"));
 		setAttr("sNick", sNick);
 		setAttr("lSubchannel", getPara("lSubchannel"));

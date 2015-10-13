@@ -35,8 +35,9 @@ public class IndexController extends BaseController
 		catch (Exception e)
 		{
 			// TODO Auto-generated catch block
-			if(LOGGER.isErrorEnabled()){
-				LOGGER.error("index异常：{}",e);
+			if (LOGGER.isErrorEnabled())
+			{
+				LOGGER.error("index异常：{}", e);
 			}
 			render("index");
 		}
@@ -45,9 +46,12 @@ public class IndexController extends BaseController
 	public void live()
 	{
 		String nick = getPara("nick");
-		try {
-			nick = new String(nick.getBytes("iso8859-1"),"UTF-8");
-		} catch (UnsupportedEncodingException e) {
+		try
+		{
+			nick = new String(nick.getBytes("iso8859-1"), "UTF-8");
+		}
+		catch (UnsupportedEncodingException e)
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -55,5 +59,46 @@ public class IndexController extends BaseController
 		setAttr("nick", nick);
 		setAttr("id", getPara("id"));
 		render("live");
+	}
+
+	public void lol()
+	{
+		try
+		{
+			String url = "http://api.m.huya.com/gamelabel/labellive?limit=40&platform=android&labelid=6&page=1&gameid=1&version=3.2.2";
+			Map result = (Map) JSON.parse(HttpKit.get(url));
+			Map dataMap = (Map) JSON.parse("" + result.get("data"));
+			List mapList = JSON.parseArray("" + dataMap.get("lives"), HashMap.class);
+			setAttr("list", mapList);
+			render("lol");
+		}
+		catch (Exception e)
+		{
+			// TODO Auto-generated catch block
+			if (LOGGER.isErrorEnabled())
+			{
+				LOGGER.error("index异常：{}", e);
+			}
+			render("index");
+		}
+	}
+	
+	public void live_lol()
+	{
+		String sNick = getPara("sNick");
+		/*try
+		{
+			sNick = new String(sNick.getBytes("iso8859-1"), "UTF-8");
+		}
+		catch (UnsupportedEncodingException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		setAttr("lChannelId", getPara("lChannelId"));
+		setAttr("sNick", sNick);
+		setAttr("lSubchannel", getPara("lSubchannel"));
+		setAttr("sAvatarUrl", getPara("sAvatarUrl"));
+		render("live_lol");
 	}
 }

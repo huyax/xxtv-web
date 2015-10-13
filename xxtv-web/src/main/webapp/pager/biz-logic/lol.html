@@ -50,12 +50,12 @@
 							<%for(item in list){%>
 								<div class="live-box"
 									style="width: 240px; margin: 10px 10px 10px 0px;">
-									<a href="${base}/live?id=${item.room_id}&nick=${item.nickname}&uid=${item.owner_uid}"
+									<a href="${base}/live_lol?lChannelId=${item.lChannelId}&lSubchannel=${item.lSubchannel}&sNick=${item.sNick}&sAvatarUrl=${item.sAvatarUrl}"
 										target="_blank"><div
 											style="padding: 0px; margin: 0px; font-size: 0px; line-height: 0px; position: relative;">
 											<img style="width: 242px; height: 130px;"
 												class="none-opacity-img"
-												src="${item.room_src}">
+												src="${item.sVideoCaptureUrl}">
 											<div class="play-shadow"
 												style="position: absolute; top: 40px; left: 95px;; z-index: -100;">
 												<img src="${base}/assets/biz-logic/img/play.png">
@@ -65,20 +65,20 @@
 											style="width: 100%; display: table; position: relative; border: 1px #111 solid; background-color: rgb(15, 15, 15);">
 											<div style="position: absolute; top: -25px; left: 7px;">
 												<img class="circle-live"
-													src="http://uc.douyutv.com/avatar.php?uid=${item.owner_uid}&amp;size=middle"
+													src="${item.sAvatarUrl}"
 													onerror="$(this).remove();">
 											</div>
 											<div
 												style="font-size: 14px; font-weight: 400; line-height: 30px; float: left; margin-left: 70px; color: #eee; display: table;">
-												<div class="overflow-text" style="width: 160px;">${item.room_name}</div>
+												<div class="overflow-text" style="width: 160px;">${item.sLiveDesc}</div>
 											</div>
 											<div
 												style="color: #999; text-align: left; font-size: 11px; display: table; width: 100%; padding: 0 5px 5px 5px;">
 												<div class="overflow-text"
-													style="width: 100px; float: left; color: #ddd">${item.nickname}</div>
+													style="width: 100px; float: left; color: #ddd">${item.sNick}</div>
 												<div style="float: right; margin-right: 10px;">
-													<span class="glyphicon glyphicon-eye-open"></span> ${item.online} <span
-														class="glyphicon glyphicon-map-marker"></span> douyu
+													<span class="glyphicon glyphicon-eye-open"></span> ${item.iActivityCount} <span
+														class="glyphicon glyphicon-map-marker"></span> yy
 												</div>
 											</div>
 										</div></a>

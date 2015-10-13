@@ -24,12 +24,18 @@ public class IndexController extends BaseController {
 	public void dota2() {
 		try {
 			String url = "http://www.douyutv.com/api/v1/live/3?aid=android&auth=5b29ce8060866f98416614e8476e14d5&client_sys=android&limit=200&offset=0&time=1444565894";
+			String url2 = "http://www.douyu.com/api/v1/game?aid=ios&auth=b7f7ed444211e119b77363d995b21f07&client_sys=ios&time=1444640640";
 			Map result = (Map) JSON.parse(HttpKit.get(url));
+			Map result2 = (Map) JSON.parse(HttpKit.get(url2));
 			int error = ((Integer) result.get("error")).intValue();
-			if (error == 0) {
+			int error2 = ((Integer) result.get("error")).intValue();
+			if (error == 0 && error2 == 0) {
 				List mapList = JSON.parseArray("" + result.get("data"),
 						HashMap.class);
+				List mapList2 = JSON.parseArray("" + result2.get("data"),
+						HashMap.class);
 				setAttr("list", mapList);
+				setAttr("list2", mapList2);
 			}
 			render("dota2");
 		} catch (Exception e) {

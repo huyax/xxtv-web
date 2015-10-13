@@ -22,17 +22,30 @@
 </script>
 </head>
 <body>
-	<div class="container xuning-box" style="width: 1098px !important;">
+	<div class="container xuning-box" style="width: 998px !important;">
 
 
 		<div style="float: left; margin-left: 8px; margin-bottom: 8px;">
 			<div class="home-box" style="margin-bottom: 15px; margin-top: 20px;">
 				<div class="title-hori tit-box">
-					直播<span style="float: right; margin-right: 10px;"></span>
+					直播<span style="float: right; margin-right: 300px;">
+			<div>
+			<div class="nabtn active" style="padding: 2px 8px;" onclick="#">全部</div>
+			<div class="nabtn " style="padding: 2px 8px;" onclick="#">斗鱼</div>
+			<div class="nabtn " style="padding: 2px 8px;" onclick="#">龙珠</div>
+			<div class="nabtn " style="padding: 2px 8px;" onclick="#">虎牙</div>
+			<div class="nabtn " style="padding: 2px 8px;" onclick="#">战旗</div>
+			<div class="nabtn " style="padding: 2px 8px;" onclick="#">火猫</div>
+			<div class="nabtn  nabtn-right" style="padding: 2px 8px;" onclick="#">KK直播</div>
+			</div>
+			</span>
 				</div>
-
-				<div class="new-box content-dark" style="display: table;">
-
+                 <div style="word-break:break-all;width: 230px;">
+                 <%for(item2 in list2){%>
+				<div class="nabtn " style="padding: 2px 2px;width: 100px" onclick="#">${item2.game_name}</div>				
+				<%}%>
+				</div>
+				<div class="new-box content-dark" style="display: table;margin-left: 230px;">
 					<%for(item in list){%>
 					<div class="live-box"
 						style="width: 240px; margin: 10px 10px 10px 0px;">

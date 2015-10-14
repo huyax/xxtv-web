@@ -39,8 +39,8 @@
 		})
 
 		$("#" + target).children("li:first-child").addClass('h-active');
-
-		$('#contentBody').attr('src', '${base}/yy/' + target);
+		var platform = $('#contentBody').attr("platform");
+		$('#contentBody').attr('src', '${base}/'+platform+'/' + target);
 	}
 </script>
 </head>
@@ -50,9 +50,9 @@
 		<div class="nav-head" style="width: 100%;">
 			<div id="nav_bar"
 				style="width: 1000px; margin-left: auto; margin-right: auto; height: 46px; text-align: left;">
-				<a id="dota2" href="javascript:change('dota2');"><li
-					class="h-active">DOTA2</li></a><a id="lol"
-					href="javascript:change('lol');"><li>LOL</li></a>
+				<a id="dota2" href="#"><li
+					class="h-active">游戏直播</li></a><!-- <a id="lol"
+					href="javascript:change('lol');"><li>LOL</li></a> -->
 			</div>
 		</div>
 		<div class="maxtopmainbar">
@@ -72,8 +72,8 @@
 
 				<div class="container xuning-box" style="width: 1000px !important;">
 					<iframe style="width: 998px !important; min-height: 800px"
-						id="contentBody" name="contentBody" frameborder="0" scrolling="no"
-						src="${base}/yy/"></iframe>
+						id="contentBody" name="contentBody" platform="douyu"  frameborder="0" scrolling="no"
+						src="${base}/douyu/lol"></iframe>
 				</div>
 
 			</div>

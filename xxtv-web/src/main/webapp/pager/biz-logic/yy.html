@@ -16,87 +16,157 @@
 <script type="text/javascript"
 	src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">
-	window.onload = function() {
-		window.parent.ifrmLoaded();
+	
+	function changePlatform(target){
+		window.location.href='${base}/' + target;
+	}
+	
+	function changeGame(itemId){
+		window.location.href='${base}/yy/' + itemId;
 	}
 </script>
 </head>
 <body>
 
-	<div class="container xuning-box" style="width: 1098px !important;">
+
+	<div class="maxtopbar">
+		<div class="nav-head" style="width: 100%;">
+			<div id="nav_bar"
+				style="width: 1000px; margin-left: auto; margin-right: auto; height: 46px; text-align: left;">
+				<a id="dota2" href="#"><li class="h-active">游戏直播</li></a>
+				<!-- <a id="lol"
+					href="javascript:change('lol');"><li>LOL</li></a> -->
+			</div>
+		</div>
+		<div class="maxtopmainbar">
+			<div
+				style="width: 100%; height: 100px; background: url('${base}/assets/biz-logic/img/back.jpg') repeat-x; background-position: center;"></div>
 
 
+		</div>
+		<div class="main-shadow-box">
+			<div class="main-container"
+				style="margin-top: 0px; margin-bottom: 1px; padding-bottom: 1px;">
+				<div class="secoundbar-outer">
+					<ul class="secoundbar" style="margin-top: 20px; margin-bottom: 0px">
 
-		<div style="float: left; margin-left: 8px; margin-bottom: 8px;">
-			<div class="home-box" style="margin-bottom: 15px; margin-top: 20px;">
-				<div class="title-hori tit-box">
-					直播平台<span style="float: right; margin-right: 380px;">
-						<div style="margin: 0px 0 0px 0px;">
-							<div class="nabtn " style="padding: 2px 8px;" onclick="${base}/live/douyu/">斗鱼</div>
-							<div class="nabtn " style="padding: 2px 8px;" onclick="${base}/live/yy/">龙珠</div>
-							<div class="nabtn active" style="padding: 2px 8px;" onclick="${base}/live/yy/">虎牙</div>
-							<div class="nabtn " style="padding: 2px 8px;" onclick="${base}/live/zhanqi/">战旗</div>
-							<div class="nabtn " style="padding: 2px 8px;" onclick="${base}/live/huomao/">火猫</div>
-							<div class="nabtn  nabtn-right" style="padding: 2px 8px;"
-								onclick="${base}/live/kk/">KK直播</div>
-						</div>
-					</span>
+					</ul>
 				</div>
 
 
-				<div style="word-break: break-all; width: 230px;">
-					<%for(item in cateList){%>
-					<div class="nabtn " style="padding: 2px 2px; width: 100px"
-						onclick="#">${item.itemName}</div>
-					<%}%>
-				</div>
+				<div class="container xuning-box" style="width: 1098px !important;">
 
 
-				<div class="new-box content-dark"
-					style="display: table; margin-left: 230px;">
 
-					<%for(item in list){%>
-					<div class="live-box"
-						style="width: 240px; margin: 10px 10px 10px 0px;">
-						<a
-							href="${base}/live/lol?lChannelId=${item.lChannelId}&lSubchannel=${item.lSubchannel}&sNick=${item.sNick}&sAvatarUrl=${item.sAvatarUrl}"
-							target="_blank"><div
-								style="padding: 0px; margin: 0px; font-size: 0px; line-height: 0px; position: relative;">
-								<img style="width: 242px; height: 130px;"
-									class="none-opacity-img" src="${item.sVideoCaptureUrl}">
-								<div class="play-shadow"
-									style="position: absolute; top: 40px; left: 95px;; z-index: -100;">
-									<img src="${base}/assets/biz-logic/img/play.png">
-								</div>
-							</div>
-							<div
-								style="width: 100%; display: table; position: relative; border: 1px #111 solid; background-color: rgb(15, 15, 15);">
-								<div style="position: absolute; top: -25px; left: 7px;">
-									<img class="circle-live" src="${item.sAvatarUrl}"
-										onerror="$(this).remove();">
-								</div>
-								<div
-									style="font-size: 14px; font-weight: 400; line-height: 30px; float: left; margin-left: 70px; color: #eee; display: table;">
-									<div class="overflow-text" style="width: 160px;">${item.sLiveDesc}</div>
-								</div>
-								<div
-									style="color: #999; text-align: left; font-size: 11px; display: table; width: 100%; padding: 0 5px 5px 5px;">
-									<div class="overflow-text"
-										style="width: 100px; float: left; color: #ddd">${item.sNick}</div>
-									<div style="float: right; margin-right: 10px;">
-										<span class="glyphicon glyphicon-eye-open"></span>
-										${item.iActivityCount} <span
-											class="glyphicon glyphicon-map-marker"></span> yy
+					<div style="float: left; margin-left: 8px; margin-bottom: 8px;">
+						<div class="home-box"
+							style="margin-bottom: 15px; margin-top: 20px;">
+							<div class="title-hori tit-box">
+								直播平台<span style="float: right; margin-right: 380px;">
+									<div>
+										<div class="nabtn " style="padding: 2px 8px;"
+											onclick="changePlatform('douyu');">斗鱼</div>
+										<div class="nabtn active" style="padding: 2px 8px;"
+											onclick="javascript:void(0);">虎牙</div>
+										<div class="nabtn " style="padding: 2px 8px;" onclick="#">龙珠</div>
+										<div class="nabtn " style="padding: 2px 8px;" onclick="#">战旗</div>
+										<div class="nabtn " style="padding: 2px 8px;" onclick="#">火猫</div>
+										<div class="nabtn  nabtn-right" style="padding: 2px 8px;"
+											onclick="#">KK直播</div>
 									</div>
+								</span>
+							</div>
+
+
+							<div style="word-break: break-all; width: 230px;">
+								<%for(item in cateList){%>
+								<div <%if(item.itemId == itemId){%> class="nabtn active" <%}else{%>class="nabtn " <%}%> style="padding: 2px 2px; width: 100px"
+									onclick="changeGame('${item.itemId}');">${item.itemName}</div>
+								<%}%>
+							</div>
+
+
+							<div class="new-box content-dark"
+								style="display: table; margin-left: 230px;">
+
+								<%for(item in list){%>
+								<div class="live-box"
+									style="width: 240px; margin: 10px 10px 10px 0px;">
+									<a
+										href="${base}/live/yy?lChannelId=${item.lChannelId}&lSubchannel=${item.lSubchannel}&sNick=${item.sNick}&sAvatarUrl=${item.sAvatarUrl}"
+										target="_blank"><div
+											style="padding: 0px; margin: 0px; font-size: 0px; line-height: 0px; position: relative;">
+											<img style="width: 242px; height: 130px;"
+												class="none-opacity-img" src="${item.sVideoCaptureUrl}">
+											<div class="play-shadow"
+												style="position: absolute; top: 40px; left: 95px;; z-index: -100;">
+												<img src="${base}/assets/biz-logic/img/play.png">
+											</div>
+										</div>
+										<div
+											style="width: 100%; display: table; position: relative; border: 1px #111 solid; background-color: rgb(15, 15, 15);">
+											<div style="position: absolute; top: -25px; left: 7px;">
+												<img class="circle-live" src="${item.sAvatarUrl}"
+													onerror="$(this).remove();">
+											</div>
+											<div
+												style="font-size: 14px; font-weight: 400; line-height: 30px; float: left; margin-left: 70px; color: #eee; display: table;">
+												<div class="overflow-text" style="width: 160px;">${item.sLiveDesc}</div>
+											</div>
+											<div
+												style="color: #999; text-align: left; font-size: 11px; display: table; width: 100%; padding: 0 5px 5px 5px;">
+												<div class="overflow-text"
+													style="width: 100px; float: left; color: #ddd">${item.sNick}</div>
+												<div style="float: right; margin-right: 10px;">
+													<span class="glyphicon glyphicon-eye-open"></span>
+													${item.iActivityCount} <span
+														class="glyphicon glyphicon-map-marker"></span> yy
+												</div>
+											</div>
+										</div></a>
 								</div>
-							</div></a>
+								<%}%>
+
+							</div>
+						</div>
+
+
 					</div>
-					<%}%>
+				</div>
+
+			</div>
+			<!-- footbar -->
+			<div
+				style="width: 100%; min-width: 1100px; text-align: center; display: table; position: absolute;">
+
+				<div
+					style="background-color: rgb(0, 0, 0); padding-top: 15px; padding-bottom: 15px; position: relative;">
+					<div
+						style="width: 1100px; margin: 0 auto; line-height: 20px; position: relative; height: 30px;">
+
+					</div>
+				</div>
+				<div class="footbar" style="padding-bottom: 10px;">
+					<div style="position: relative; width: 1100px; margin: 0 auto;">
+
+						<div style="float: center; margin-left: 20px">
+							<script type="text/javascript">
+								var cnzz_protocol = (("https:" == document.location.protocol) ? " https://"
+										: " http://");
+								document
+										.write(unescape("%3Cspan id='cnzz_stat_icon_1256549765'%3E%3C/span%3E%3Cscript src='"
+												+ cnzz_protocol
+												+ "s4.cnzz.com/z_stat.php%3Fid%3D1256549765%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+							</script>
+							<strong><font size="4">xxtv.online</font></strong>
+						</div>
+
+					</div>
 
 				</div>
 			</div>
 
-
+			<!-- end of footbar -->
 		</div>
 	</div>
 </body>

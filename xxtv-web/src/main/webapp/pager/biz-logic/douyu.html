@@ -22,38 +22,41 @@
 </script>
 </head>
 <body>
-
-	<div class="container xuning-box" style="width: 1098px !important;">
-
+	<div class="container xuning-box" style="width: 998px !important;">
 
 
 		<div style="float: left; margin-left: 8px; margin-bottom: 8px;">
 			<div class="home-box" style="margin-bottom: 15px; margin-top: 20px;">
-				<div class="title-hori tit-box" >
-					直播<span style="float: right; margin-right: 380px;">
-			<div style="margin: 0px 0 0px 0px;">
-			<div class="nabtn active" style="padding: 2px 8px;" onclick="#">全部</div>
-			<div class="nabtn " style="padding: 2px 8px;" onclick="#">斗鱼</div>
-			<div class="nabtn " style="padding: 2px 8px;" onclick="#">龙珠</div>
-			<div class="nabtn " style="padding: 2px 8px;" onclick="#">虎牙</div>
-			<div class="nabtn " style="padding: 2px 8px;" onclick="#">战旗</div>
-			<div class="nabtn " style="padding: 2px 8px;" onclick="#">火猫</div>
-			<div class="nabtn  nabtn-right" style="padding: 2px 8px;" onclick="#">KK直播</div>
-			</div>
-			</span>
-		</div>
-				
-				<div class="new-box content-dark" style="display: table;">
-
+				<div class="title-hori tit-box">
+					直播平台<span style="float: right; margin-right: 300px;">
+						<div>
+							<div class="nabtn active" style="padding: 2px 8px;" onclick="${base}/live/douyu/">斗鱼</div>
+							<div class="nabtn " style="padding: 2px 8px;" onclick="${base}/live/yy/">龙珠</div>
+							<div class="nabtn " style="padding: 2px 8px;" onclick="${base}/live/yy/">虎牙</div>
+							<div class="nabtn " style="padding: 2px 8px;" onclick="${base}/live/zhanqi/">战旗</div>
+							<div class="nabtn " style="padding: 2px 8px;" onclick="${base}/live/huomao/">火猫</div>
+							<div class="nabtn  nabtn-right" style="padding: 2px 8px;"
+								onclick="${base}/live/kk/">KK直播</div>
+						</div>
+					</span>
+				</div>
+				<div style="word-break: break-all; width: 230px;">
+					<%for(item in cateList){%>
+					<div class="nabtn " style="padding: 2px 2px; width: 100px"
+						onclick="#">${item.game_name}</div>
+					<%}%>
+				</div>
+				<div class="new-box content-dark"
+					style="display: table; margin-left: 230px;">
 					<%for(item in list){%>
 					<div class="live-box"
 						style="width: 240px; margin: 10px 10px 10px 0px;">
 						<a
-							href="${base}/live/lol?lChannelId=${item.lChannelId}&lSubchannel=${item.lSubchannel}&sNick=${item.sNick}&sAvatarUrl=${item.sAvatarUrl}"
+							href="${base}/live/dota2?id=${item.room_id}&nick=${item.nickname}&uid=${item.owner_uid}"
 							target="_blank"><div
 								style="padding: 0px; margin: 0px; font-size: 0px; line-height: 0px; position: relative;">
 								<img style="width: 242px; height: 130px;"
-									class="none-opacity-img" src="${item.sVideoCaptureUrl}">
+									class="none-opacity-img" src="${item.room_src}">
 								<div class="play-shadow"
 									style="position: absolute; top: 40px; left: 95px;; z-index: -100;">
 									<img src="${base}/assets/biz-logic/img/play.png">
@@ -62,21 +65,22 @@
 							<div
 								style="width: 100%; display: table; position: relative; border: 1px #111 solid; background-color: rgb(15, 15, 15);">
 								<div style="position: absolute; top: -25px; left: 7px;">
-									<img class="circle-live" src="${item.sAvatarUrl}"
+									<img class="circle-live"
+										src="http://uc.douyutv.com/avatar.php?uid=${item.owner_uid}&amp;size=middle"
 										onerror="$(this).remove();">
 								</div>
 								<div
 									style="font-size: 14px; font-weight: 400; line-height: 30px; float: left; margin-left: 70px; color: #eee; display: table;">
-									<div class="overflow-text" style="width: 160px;">${item.sLiveDesc}</div>
+									<div class="overflow-text" style="width: 160px;">${item.room_name}</div>
 								</div>
 								<div
 									style="color: #999; text-align: left; font-size: 11px; display: table; width: 100%; padding: 0 5px 5px 5px;">
 									<div class="overflow-text"
-										style="width: 100px; float: left; color: #ddd">${item.sNick}</div>
+										style="width: 100px; float: left; color: #ddd">${item.nickname}</div>
 									<div style="float: right; margin-right: 10px;">
 										<span class="glyphicon glyphicon-eye-open"></span>
-										${item.iActivityCount} <span
-											class="glyphicon glyphicon-map-marker"></span> yy
+										${item.online} <span class="glyphicon glyphicon-map-marker"></span>
+										douyu
 									</div>
 								</div>
 							</div></a>
@@ -84,10 +88,14 @@
 					<%}%>
 
 				</div>
+
 			</div>
 
 
 		</div>
 	</div>
+
+
+
 </body>
 </html>

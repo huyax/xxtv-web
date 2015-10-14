@@ -45,4 +45,25 @@ public class SysConstants
 	 * 视图默认路径
 	 */
 	public static final String			VIEW_BASE_PATH				= "biz-logic";
+
+	/**
+	 *斗鱼分类
+	 */
+	public static final String			CATELOG_DOUYU				= prop.get("catelog_douyu");
+
+	/**
+	 *虎牙分类
+	 */
+	public static final String			CATELOG_YY					= prop.get("catelog_yy");
+
+	/**
+	 *斗鱼直播列表
+	 */
+	public static final String			LIVE_DOUYU					= prop.get("live_douyu");
+
+	/**
+	 *虎牙直播列表
+	 */
+	public static final String			LIVE_YY						= prop.get("live_yy");
+
 }

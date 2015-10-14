@@ -10,10 +10,12 @@ import com.jfinal.config.Interceptors;
 import com.jfinal.config.JFinalConfig;
 import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
+import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
+import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.plugin.ehcache.EhCachePlugin;
 import com.xxtv.base.common.MyBeetlRenderFactory;
-import com.xxtv.base.interceptor.LoginInterceptor;
 import com.xxtv.core.plugin.annotation.ControlPlugin;
+import com.xxtv.core.plugin.annotation.TablePlugin;
 import com.xxtv.tools.DevConstants;
 import com.xxtv.tools.SysConstants;
 
@@ -55,9 +57,22 @@ public class SystemConfig extends JFinalConfig
 	@Override
 	public void configPlugin(Plugins me)
 	{
+		// 配置druid数据库连接池插件
+		DruidPlugin druidPlugin = new DruidPlugin(getProperty("jdbcUrl"), getProperty("user"), getProperty("password"));
+		druidPlugin.setInitialSize(getPropertyToInt("initialSize", 10));
+		druidPlugin.setMinIdle(getPropertyToInt("minIdle", 10));
+		druidPlugin.setMaxActive(getPropertyToInt("maxActive", 100));
+		me.add(druidPlugin);
+
 		// 配置缓存
 		me.add(new EhCachePlugin());
 
+		// 配置ActiveRecord插件
+		ActiveRecordPlugin arp = new ActiveRecordPlugin(druidPlugin);
+		arp.setShowSql(SysConstants.DEBUG);
+		me.add(arp);
+		// 自动扫描bean和数据库表映射
+		new TablePlugin(arp).start();
 	}
 
 	/**

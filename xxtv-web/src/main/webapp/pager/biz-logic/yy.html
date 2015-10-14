@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>熊熊TV - 专业视频直播网站</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-siteapp-platform">
+<meta name="apple-itunes-app" content="app-id=990892583">
+<meta name="keywords"
+	content="xxtv,熊熊TV,游戏, dota, dota2, dota2直播, LOL, LOL直播">
+<meta name="description" content="熊熊TV 专业视频直播网站">
+<link rel="shortcut icon"
+	href="${base}/assets/biz-logic/images/favicon.ico" type="image/x-icon" />
+<link href="${base}/assets/biz-logic/css/main.css" rel="stylesheet"
+	type="text/css">
+<link href="${base}/assets/biz-logic/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<script type="text/javascript"
+	src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		window.parent.ifrmLoaded();
+	}
+</script>
+</head>
+<body>
+
+	<div class="container xuning-box" style="width: 1098px !important;">
+
+
+
+		<div style="float: left; margin-left: 8px; margin-bottom: 8px;">
+			<div class="home-box" style="margin-bottom: 15px; margin-top: 20px;">
+				<div class="title-hori tit-box">
+					直播平台<span style="float: right; margin-right: 380px;">
+						<div style="margin: 0px 0 0px 0px;">
+							<div class="nabtn " style="padding: 2px 8px;" onclick="${base}/live/douyu/">斗鱼</div>
+							<div class="nabtn " style="padding: 2px 8px;" onclick="${base}/live/yy/">龙珠</div>
+							<div class="nabtn active" style="padding: 2px 8px;" onclick="${base}/live/yy/">虎牙</div>
+							<div class="nabtn " style="padding: 2px 8px;" onclick="${base}/live/zhanqi/">战旗</div>
+							<div class="nabtn " style="padding: 2px 8px;" onclick="${base}/live/huomao/">火猫</div>
+							<div class="nabtn  nabtn-right" style="padding: 2px 8px;"
+								onclick="${base}/live/kk/">KK直播</div>
+						</div>
+					</span>
+				</div>
+
+
+				<div style="word-break: break-all; width: 230px;">
+					<%for(item in cateList){%>
+					<div class="nabtn " style="padding: 2px 2px; width: 100px"
+						onclick="#">${item.itemName}</div>
+					<%}%>
+				</div>
+
+
+				<div class="new-box content-dark"
+					style="display: table; margin-left: 230px;">
+
+					<%for(item in list){%>
+					<div class="live-box"
+						style="width: 240px; margin: 10px 10px 10px 0px;">
+						<a
+							href="${base}/live/lol?lChannelId=${item.lChannelId}&lSubchannel=${item.lSubchannel}&sNick=${item.sNick}&sAvatarUrl=${item.sAvatarUrl}"
+							target="_blank"><div
+								style="padding: 0px; margin: 0px; font-size: 0px; line-height: 0px; position: relative;">
+								<img style="width: 242px; height: 130px;"
+									class="none-opacity-img" src="${item.sVideoCaptureUrl}">
+								<div class="play-shadow"
+									style="position: absolute; top: 40px; left: 95px;; z-index: -100;">
+									<img src="${base}/assets/biz-logic/img/play.png">
+								</div>
+							</div>
+							<div
+								style="width: 100%; display: table; position: relative; border: 1px #111 solid; background-color: rgb(15, 15, 15);">
+								<div style="position: absolute; top: -25px; left: 7px;">
+									<img class="circle-live" src="${item.sAvatarUrl}"
+										onerror="$(this).remove();">
+								</div>
+								<div
+									style="font-size: 14px; font-weight: 400; line-height: 30px; float: left; margin-left: 70px; color: #eee; display: table;">
+									<div class="overflow-text" style="width: 160px;">${item.sLiveDesc}</div>
+								</div>
+								<div
+									style="color: #999; text-align: left; font-size: 11px; display: table; width: 100%; padding: 0 5px 5px 5px;">
+									<div class="overflow-text"
+										style="width: 100px; float: left; color: #ddd">${item.sNick}</div>
+									<div style="float: right; margin-right: 10px;">
+										<span class="glyphicon glyphicon-eye-open"></span>
+										${item.iActivityCount} <span
+											class="glyphicon glyphicon-map-marker"></span> yy
+									</div>
+								</div>
+							</div></a>
+					</div>
+					<%}%>
+
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</body>
+</html>

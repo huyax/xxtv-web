@@ -6,31 +6,36 @@ import com.xxtv.base.common.BaseController;
 import com.xxtv.core.plugin.annotation.Control;
 
 @Control(controllerKey = "/live")
-public class LiveController extends BaseController {
+public class LiveController extends BaseController
+{
 
-	public void index() {
-		dota2();
-	}
-
-	public void dota2() {
+	public void douyu()
+	{
 		String nick = getPara("nick");
-		try {
+		try
+		{
 			nick = new String(nick.getBytes("iso8859-1"), "UTF-8");
-		} catch (UnsupportedEncodingException e) {
+		}
+		catch (UnsupportedEncodingException e)
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		setAttr("uid", getPara("uid"));
 		setAttr("nick", nick);
 		setAttr("id", getPara("id"));
-		render("live/dota2");
+		render("live/douyu");
 	}
 
-	public void lol() {
+	public void yy()
+	{
 		String sNick = getPara("sNick");
-		try {
+		try
+		{
 			sNick = new String(sNick.getBytes("iso8859-1"), "UTF-8");
-		} catch (UnsupportedEncodingException e) {
+		}
+		catch (UnsupportedEncodingException e)
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -38,6 +43,6 @@ public class LiveController extends BaseController {
 		setAttr("sNick", sNick);
 		setAttr("lSubchannel", getPara("lSubchannel"));
 		setAttr("sAvatarUrl", getPara("sAvatarUrl"));
-		render("live/lol");
+		render("live/yy");
 	}
 }

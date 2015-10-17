@@ -36,4 +36,10 @@ public class EhcacheConstants
 	 */
 	public static final String	LIVE_INTERFACE	= "live_interface";
 
+	/**
+	 * 电影
+	 * movie ehcache的key
+	 */
+	public static final String MOVIE = "movie";
+
 }

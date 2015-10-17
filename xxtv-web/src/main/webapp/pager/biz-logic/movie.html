@@ -16,26 +16,21 @@
 <script type="text/javascript"
 	src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">
-	
-	function changePlatform(target){
-		window.location.href='${base}/' + target;
+
+	function change(cate) {
+		window.location.href = '${base}/movie?cate=' + cate + "&page=1";
 	}
-	
-	function changeGame(itemId){
-		window.location.href='${base}/yy/' + itemId;
-	}
+
 </script>
 </head>
 <body>
-
 
 	<div class="maxtopbar">
 		<div class="nav-head" style="width: 100%;">
 			<div id="nav_bar"
 				style="width: 1000px; margin-left: auto; margin-right: auto; height: 46px; text-align: left;">
-				<a id="dota2" href="#"><li class="h-active">游戏直播</li></a>
-				<a id="movie"
-					href="${base}/movie"><li>电影下载</li></a>
+				<a id="dota2" href="${base}/douyu"><li
+					>游戏直播</li></a><a id="movie" href="#"><li class="h-active">电影下载</li></a>
 			</div>
 		</div>
 		<div class="maxtopmainbar">
@@ -53,51 +48,33 @@
 					</ul>
 				</div>
 
-
 				<div class="container xuning-box" style="width: 1098px !important;">
-
 
 
 					<div style="float: left; margin-left: 8px; margin-bottom: 8px;">
 						<div class="home-box"
 							style="margin-bottom: 15px; margin-top: 20px;">
 							<div class="title-hori tit-box">
-								直播平台<span style="float: right; margin-right: 380px;">
+								影片分类<span style="float: right; margin-right: 300px;">
 									<div>
-										<div class="nabtn " style="padding: 2px 8px;"
-											onclick="changePlatform('douyu');">斗鱼</div>
-										<div class="nabtn active" style="padding: 2px 8px;"
-											onclick="javascript:void(0);">虎牙</div>
-										<div class="nabtn " style="padding: 2px 8px;" onclick="#">龙珠</div>
-										<div class="nabtn " style="padding: 2px 8px;" onclick="#">战旗</div>
-										<div class="nabtn " style="padding: 2px 8px;" onclick="#">火猫</div>
-										<div class="nabtn  nabtn-right" style="padding: 2px 8px;"
-											onclick="#">KK直播</div>
+										<% for(item in cates){%>
+											<div <%if(item.id == cate){%> class="nabtn active" <%}else{%>class="nabtn " <%}%>  style="padding: 2px 8px;" onclick="javascript:change(${item.id});">${item.name}</div>
+										<%}%>
 									</div>
 								</span>
 							</div>
 
-
-							<div style="word-break: break-all; width: 230px;">
-								<%for(item in cateList){%>
-								<div <%if(item.itemId == itemId){%> class="nabtn active" <%}else{%>class="nabtn " <%}%> style="padding: 2px 2px; width: 100px"
-									onclick="changeGame('${item.itemId}');">${item.itemName}</div>
-								<%}%>
-							</div>
-
-
 							<div class="new-box content-dark"
-								style="display: table; margin-left: 230px;">
-
+								style="display: table;">
 								<%for(item in list){%>
 								<div class="live-box"
 									style="width: 240px; margin: 10px 10px 10px 0px;">
 									<a
-										href="${base}/live/yy?lChannelId=${item.lChannelId}&lSubchannel=${item.lSubchannel}&sNick=${item.sNick}&sAvatarUrl=${item.sAvatarUrl}"
+										href="${base}/movie/detail?id=${item.id}"
 										target="_blank"><div
 											style="padding: 0px; margin: 0px; font-size: 0px; line-height: 0px; position: relative;">
 											<img style="width: 242px; height: 130px;"
-												class="none-opacity-img" src="${item.sVideoCaptureUrl}">
+												class="none-opacity-img" src="${item.icon}">
 											<div class="play-shadow"
 												style="position: absolute; top: 40px; left: 95px;; z-index: -100;">
 												<img src="${base}/assets/biz-logic/img/play.png">
@@ -105,22 +82,18 @@
 										</div>
 										<div
 											style="width: 100%; display: table; position: relative; border: 1px #111 solid; background-color: rgb(15, 15, 15);">
-											<div style="position: absolute; top: -25px; left: 7px;">
-												<img class="circle-live" src="${item.sAvatarUrl}"
-													onerror="$(this).remove();">
-											</div>
+
 											<div
-												style="font-size: 14px; font-weight: 400; line-height: 30px; float: left; margin-left: 70px; color: #eee; display: table;">
-												<div class="overflow-text" style="width: 160px;">${item.sLiveDesc}</div>
+												style="font-size: 14px; font-weight: 400; line-height: 30px;float: left; color: #eee; display: table;">
+												<div class="overflow-text" >${item.name}</div>
 											</div>
 											<div
 												style="color: #999; text-align: left; font-size: 11px; display: table; width: 100%; padding: 0 5px 5px 5px;">
-												<div class="overflow-text"
-													style="width: 100px; float: left; color: #ddd">${item.sNick}</div>
+												
 												<div style="float: right; margin-right: 10px;">
 													<span class="glyphicon glyphicon-eye-open"></span>
-													${item.iActivityCount} <span
-														class="glyphicon glyphicon-map-marker"></span> yy
+													${item.pub_date} <span class="glyphicon glyphicon-map-marker"></span>
+													${item.cateName}
 												</div>
 											</div>
 										</div></a>
@@ -128,11 +101,14 @@
 								<%}%>
 
 							</div>
+
 						</div>
+
 
 
 					</div>
 				</div>
+
 
 			</div>
 			<!-- footbar -->
@@ -169,5 +145,6 @@
 			<!-- end of footbar -->
 		</div>
 	</div>
+
 </body>
 </html>

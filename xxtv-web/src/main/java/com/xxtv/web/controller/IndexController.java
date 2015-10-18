@@ -26,17 +26,18 @@ public class IndexController extends BaseController {
 	}
 
 	public void yy() {
-		String itemId = getPara(0);
+		Integer itemId = getPara(0) == null ?1:getParaToInt(0);
 		String platformKey = "yy";
 		if (itemId == null) {
 			// 默认游戏lol
-			itemId = "1";
+			itemId = 1;
 		}
 
 		setAttr("itemId", itemId);
 		// 直播列表
-		String url = LiveInterfaceModel.dao.getLiveInterface(platformKey,
-				itemId).getStr("url");
+		String url = "http://api.m.huya.com/channel/game/?pageSize=40&platform=android&page=1&version=3.2.2&game_id=" + itemId;
+		/*String url = LiveInterfaceModel.dao.getLiveInterface(platformKey,
+				itemId).getStr("url");*/
 		Map result = (Map) JSON.parse(HttpKit.get(url));
 		String message = (String) result.get("message");
 		if ("success".equals(message)) {
@@ -57,22 +58,15 @@ public class IndexController extends BaseController {
 	}
 
 	public void douyu() {
-		String gameKey = getPara(0);
-		String cateId = getPara("cateId");
+		String cateId = getPara("cateId") == null ? "1" : getPara("cateId");
 		String platformKey = "douyu";
 
-		if (cateId == null && "dota2".equals(gameKey)) {
-			cateId = "3";
-		}
-		setAttr("cateId", cateId == null ? "1" : cateId);
+		setAttr("cateId", cateId);
 		setAttr("platformKey", platformKey);
-		if (gameKey == null) {
-			gameKey = "lol";
-		}
-		setAttr("gameKey", gameKey);
+		String url = "http://www.douyutv.com/api/v1/live/" + cateId;
 		// 直播列表
-		String url = LiveInterfaceModel.dao.getLiveInterface(platformKey,
-				gameKey).getStr("url");
+		/*String url = LiveInterfaceModel.dao.getLiveInterface(platformKey,
+				gameKey).getStr("url");*/
 		Map result = (Map) JSON.parse(HttpKit.get(url));
 		int error = ((Integer) result.get("error")).intValue();
 		if (error == 0) {

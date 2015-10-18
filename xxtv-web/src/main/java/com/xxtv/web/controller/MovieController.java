@@ -18,6 +18,8 @@ public class MovieController extends BaseController {
 		Page<MovieModel> page = MovieModel.dao.paginate(pageNum, 20,
 				"select movie.*,catelogs.name cateName  ", "from movie left join catelogs on movie.catelog=catelogs.id where movie.catelog="+cate+" order by movie.pub_date desc");
 		setAttr("list", page.getList());
+		setAttr("totalPage", page.getTotalPage());
+		setAttr("currentPage", pageNum);
 		render("movie");
 	}
 	

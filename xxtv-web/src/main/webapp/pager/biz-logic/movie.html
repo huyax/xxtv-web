@@ -55,7 +55,7 @@
 						<div class="home-box"
 							style="margin-bottom: 15px; margin-top: 20px;">
 							<div class="title-hori tit-box">
-								影片分类<span style="float: right; margin-right: 300px;">
+								影片分类<span style="float: right; margin-right: 100px;margin-bottom: 10px;">
 									<div>
 										<% for(item in cates){%>
 											<div <%if(item.id == cate){%> class="nabtn active" <%}else{%>class="nabtn " <%}%>  style="padding: 2px 8px;" onclick="javascript:change(${item.id});">${item.name}</div>
@@ -68,16 +68,16 @@
 								style="display: table;">
 								<%for(item in list){%>
 								<div class="live-box"
-									style="width: 240px; margin: 10px 10px 10px 0px;">
+									style="width: 230px; margin: 10px 10px 10px 0px;">
 									<a
 										href="${base}/movie/detail?id=${item.id}"
 										target="_blank"><div
 											style="padding: 0px; margin: 0px; font-size: 0px; line-height: 0px; position: relative;">
-											<img style="width: 242px; height: 130px;"
+											<img style="width: 230px; height: 240px;"
 												class="none-opacity-img" src="${item.icon}">
 											<div class="play-shadow"
 												style="position: absolute; top: 40px; left: 95px;; z-index: -100;">
-												<img src="${base}/assets/biz-logic/img/play.png">
+												
 											</div>
 										</div>
 										<div
@@ -107,6 +107,9 @@
 
 
 					</div>
+					
+					<% include("/pager/common/paginate.html"){} %>
+					
 				</div>
 
 

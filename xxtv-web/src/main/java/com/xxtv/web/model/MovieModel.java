@@ -21,6 +21,8 @@ public class MovieModel extends Model<MovieModel> {
 	 * @return
 	 */
 	public Page<MovieModel> search(int page,int size,String q) {
-		return dao.paginate(page, size, "SELECT id,name,pub_date ", "FROM `movie`WHERE MATCH (name)AGAINST (?)",q);	
+		/*return dao.paginate(page, size, "SELECT id,name,pub_date ", "FROM `movie`WHERE MATCH (name)AGAINST (?)",q);	*/
+		
+		return dao.paginate(page, size, "SELECT id,name,pub_date ", "FROM `movie`WHERE name like '%" +q+ "%'");	
 	}
 }

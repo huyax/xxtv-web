@@ -41,5 +41,11 @@ public class EhcacheConstants
 	 * movie ehcache的key
 	 */
 	public static final String MOVIE = "movie";
+	
+	/**
+	 * 电视台
+	 * tv  ehcache的key
+	 */
+	public static final String TV = "tv";
 
 }

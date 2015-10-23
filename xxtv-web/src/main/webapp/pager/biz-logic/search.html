@@ -27,6 +27,7 @@
 		<div class="nav-head" style="width: 100%;">
 			<div id="nav_bar"
 				style="width: 1000px; margin-left: auto; margin-right: auto; height: 46px; text-align: left;">
+				<a id="index" href="${base}/"><li>首页</li></a>
 				<a id="dota2" href="${base}/douyu"><li
 					>游戏直播</li></a><a id="movie" href="${base}/movie"><li>电影下载</li></a>
 			</div>
@@ -64,15 +65,7 @@
 						</tbody>
 					</table>
 					</div>
-					<!-- <div
-						style="margin-left: auto; margin-right: auto; text-align: center; margin-bottom: 10px;">
-						<div class="filterbox">
-							<div class="nabtn active pagerwidth">1</div>
-							<div class="nabtn pagerwidth" style="width: 60px !important;"
-								onclick="DoNav('?p=2&amp;q=lol')">后一页</div>
-						</div>
-					</div> -->
-					
+				
 					<% include("/pager/common/search_page.html"){} %>
 				</div>
 

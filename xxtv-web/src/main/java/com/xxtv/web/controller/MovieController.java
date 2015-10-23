@@ -15,7 +15,7 @@ public class MovieController extends BaseController {
 		setAttr("cate", cate);
 		int pageNum = getPara("page") == null ? 1 : getParaToInt("page");
 		
-		Page<MovieModel> page = MovieModel.dao.paginate(pageNum, 20,
+		Page<MovieModel> page = MovieModel.dao.paginate(pageNum, 24,
 				"select movie.*,catelogs.name cateName  ", "from movie left join catelogs on movie.catelog=catelogs.id where movie.catelog="+cate+" order by movie.pub_date desc");
 		setAttr("list", page.getList());
 		setAttr("totalPage", page.getTotalPage());

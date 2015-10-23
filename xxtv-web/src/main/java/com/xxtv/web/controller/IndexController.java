@@ -15,6 +15,7 @@ import com.xxtv.core.plugin.annotation.Control;
 import com.xxtv.tools.CacheUtil;
 import com.xxtv.tools.EhcacheConstants;
 import com.xxtv.web.model.LiveInterfaceModel;
+import com.xxtv.web.model.MovieModel;
 
 @Control(controllerKey = "/")
 public class IndexController extends BaseController {
@@ -22,7 +23,22 @@ public class IndexController extends BaseController {
 			.getLogger(IndexController.class);
 
 	public void index() {
-		douyu();
+		
+		List<MovieModel> movieTop = MovieModel.dao.top();
+		
+		setAttr("movieTop", movieTop);
+		
+		String yy_lol = "http://api.m.huya.com/channel/game/?pageSize=12&page=1&game_id=1";
+		Map result = (Map) JSON.parse(HttpKit.get(yy_lol));
+		String message = (String) result.get("message");
+		if ("success".equals(message)) {
+			List mapList = JSON.parseArray("" + result.get("data"),
+					HashMap.class);
+			setAttr("liveTop", mapList);
+		}
+		
+		//douyu();
+		render("index");
 	}
 
 	public void yy() {

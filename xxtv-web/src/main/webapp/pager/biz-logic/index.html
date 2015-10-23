@@ -1,0 +1,226 @@
+<html>
+<head>
+<title>熊熊TV - 专业视频直播网站</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-siteapp-platform">
+<meta name="apple-itunes-app" content="app-id=990892583">
+<meta name="keywords"
+	content="xxtv,熊熊TV,游戏, dota, dota2, dota2直播, LOL, LOL直播">
+<meta name="description" content="熊熊TV 专业视频直播网站">
+<link rel="shortcut icon"
+	href="${base}/assets/biz-logic/images/favicon.ico" type="image/x-icon" />
+<link href="${base}/assets/biz-logic/css/main.css" rel="stylesheet"
+	type="text/css">
+<link href="${base}/assets/biz-logic/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<script type="text/javascript"
+	src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+
+	<div class="maxtopbar">
+		<div class="nav-head" style="width: 100%;">
+			<div id="nav_bar"
+				style="width: 1000px; margin-left: auto; margin-right: auto; height: 46px; text-align: left;">
+				<a id="dota2" href="${base}/"><li class="h-active">首页</li></a>
+				<a id="dota2" href="${base}/douyu"><li>游戏直播</li></a><a
+					id="movie" href="#"><li >电影下载</li></a> <a id="tv"
+					href="${base}/tv"><li>电视台</li></a>
+			</div>
+		</div>
+		<div class="maxtopmainbar">
+			<div
+				style="width: 100%; height: 100px; background: url('${base}/assets/biz-logic/img/back.jpg') repeat-x; background-position: center;"></div>
+			<div id="search-box">
+				<form action="${base}/search/" method="get">
+					<div class="large-search">
+						<div
+							style="margin-left: auto; margin-right: auto; position: relative; width: 341px;">
+							<input class="large-search-text" type="text" name="q"
+								placeholder="输入影片名字"><input type="submit" value="Go"
+								class="large-search-btn ">
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+		<div class="main-shadow-box">
+			<div class="main-container"
+				style="margin-top: 0px; margin-bottom: 1px; padding-bottom: 1px;">
+				<div class="secoundbar-outer">
+					<ul class="secoundbar" style="margin-top: 20px; margin-bottom: 0px">
+
+					</ul>
+				</div>
+
+				<div class="container xuning-box" style="width: 1098px !important;">
+				
+				
+					<div style="float: left; margin-left: 8px; margin-bottom: 8px;">
+						<div class="home-box"
+							style="margin-bottom: 15px; margin-top: 20px;">
+							<div class="title-hori tit-box">
+								电视直播
+								<span style="float:right;"><a href="#" class="more-circle">More</a></span>
+							</div>
+
+							<div class="new-box content-dark" style="display: table;">
+								<embed width="980" height="602" src="http://player.hz.letv.com/live.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle" play="true" loop="true" scale="noscale" wmode="opaque" devicefont="false" bgcolor="#000000" name="www_player" menu="true" allowscriptaccess="always" allowfullscreen="true" salign="TL" flashvars="streamid=ws_hunanwsHD_1800&amp;cid=4&amp;gslb=http://live.gslb.letv.com/&amp;autoplay=true&amp;rate=800&amp;typeFrom=letv_live_hao123live&amp;ark=100&amp;cid=4&amp;ch=letv_live_sports_ws_hunanwsHD_1800_1800&amp;usewhitelist=0" type="application/x-shockwave-flash">
+							</div>
+
+						</div>
+
+
+
+					</div>
+
+					<!-- 以下为电影 -->
+					<div style="float: left; margin-left: 8px; margin-bottom: 8px;">
+						<div class="home-box"
+							style="margin-bottom: 15px; margin-top: 20px;">
+							<div class="title-hori tit-box">
+								最新影片
+								<span style="float:right;margin-right:100px;"><a href="${base}/movie" class="more-circle">More</a></span>
+							</div>
+
+							<div class="new-box content-dark" style="display: table;">
+								<%for(item in movieTop){%>
+								<div class="live-box"
+									style="width: 156px;text-align:center; margin: 10px 10px 10px 0px;">
+									<a href="${base}/movie/detail?id=${item.id}" target="_blank"><div class="text-center"
+											style="padding: 0px; margin: 0px; font-size: 0px; line-height: 0px; position: relative;">
+											<img style="width: 156px; height: 186px;"
+												class="none-opacity-img" src="${item.icon}">
+											<div class="play-shadow"
+												style="position: absolute; top: 40px; left: 95px;; z-index: -100;">
+
+											</div>
+										</div>
+										<div
+											style="width: 100%; display: table; position: relative; border: 1px #111 solid; background-color: rgb(15, 15, 15);">
+
+											<div
+												style="font-size: 14px; font-weight: 400; line-height: 30px; text-align:center; color: #eee;">
+												${item.name}
+											</div>
+											<div
+												style="color: #999; text-align: left; font-size: 11px; display: table; width: 100%; padding: 0 5px 5px 5px;">
+
+												<div style="text-align:center;">
+													${item.pub_date}    ${item.cateName}
+												</div>
+											</div>
+										</div></a>
+								</div>
+								<%}%>
+
+							</div>
+
+						</div>
+
+
+
+					</div>
+					
+					<!-- 以下为直播 -->
+
+					<div style="float: left; margin-left: 8px; margin-bottom: 8px;">
+						<div class="home-box"
+							style="margin-bottom: 15px; margin-top: 20px;">
+							<div class="title-hori tit-box">
+								直播推荐
+								<span style="float:right;margin-right:100px;"><a href="${base}/yy" class="more-circle">More</a></span>
+							</div>
+
+							<div class="new-box content-dark" style="display: table;">
+								<%for(item in liveTop){%>
+								<div class="live-box"
+									style="width: 240px; margin: 10px 10px 10px 0px;">
+									<a
+										href="${base}/live/yy?lChannelId=${item.lChannelId}&lSubchannel=${item.lSubchannel}&sNick=${item.sNick}&sAvatarUrl=${item.sAvatarUrl}"
+										target="_blank"><div
+											style="padding: 0px; margin: 0px; font-size: 0px; line-height: 0px; position: relative;">
+											<img style="width: 242px; height: 130px;"
+												class="none-opacity-img" src="${item.sVideoCaptureUrl}">
+											<div class="play-shadow"
+												style="position: absolute; top: 40px; left: 95px;; z-index: -100;">
+												<img src="${base}/assets/biz-logic/img/play.png">
+											</div>
+										</div>
+										<div
+											style="width: 100%; display: table; position: relative; border: 1px #111 solid; background-color: rgb(15, 15, 15);">
+											<div style="position: absolute; top: -25px; left: 7px;">
+												<img class="circle-live" src="${item.sAvatarUrl}"
+													onerror="$(this).remove();">
+											</div>
+											<div
+												style="font-size: 14px; font-weight: 400; line-height: 30px; float: left; margin-left: 70px; color: #eee; display: table;">
+												<div class="overflow-text" style="width: 160px;">${item.sLiveDesc}</div>
+											</div>
+											<div
+												style="color: #999; text-align: left; font-size: 11px; display: table; width: 100%; padding: 0 5px 5px 5px;">
+												<div class="overflow-text"
+													style="width: 100px; float: left; color: #ddd">${item.sNick}</div>
+												<div style="float: right; margin-right: 10px;">
+													<span class="glyphicon glyphicon-eye-open"></span>
+													${item.iActivityCount} <span
+														class="glyphicon glyphicon-map-marker"></span> yy
+												</div>
+											</div>
+										</div></a>
+								</div>
+								<%}%>
+
+							</div>
+
+						</div>
+
+
+
+					</div>
+
+				</div>
+
+
+			</div>
+			<!-- footbar -->
+			<div
+				style="width: 100%; min-width: 1100px; text-align: center; display: table; position: absolute;">
+
+				<div
+					style="background-color: rgb(0, 0, 0); padding-top: 15px; padding-bottom: 15px; position: relative;">
+					<div
+						style="width: 1100px; margin: 0 auto; line-height: 20px; position: relative; height: 30px;">
+
+					</div>
+				</div>
+				<div class="footbar" style="padding-bottom: 10px;">
+					<div style="position: relative; width: 1100px; margin: 0 auto;">
+
+						<div style="float: center; margin-left: 20px">
+							<script type="text/javascript">
+								var cnzz_protocol = (("https:" == document.location.protocol) ? " https://"
+										: " http://");
+								document
+										.write(unescape("%3Cspan id='cnzz_stat_icon_1256549765'%3E%3C/span%3E%3Cscript src='"
+												+ cnzz_protocol
+												+ "s4.cnzz.com/z_stat.php%3Fid%3D1256549765%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+							</script>
+							<strong><font size="3">xxtv.online</font></strong>
+
+
+						</div>
+
+						本站所有第三方内容均来自互联网，本站仅为网友提供信息的交流平台，所有资源版权归原权利人,请下载后24小时内删除，勿将下载的资源用于商业用途，因此造成的任何责任与本站无关!
+
+					</div>
+
+				</div>
+			</div>
+
+			<!-- end of footbar -->
+		</div>
+	</div>
+</body>
+</html>

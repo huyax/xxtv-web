@@ -54,7 +54,7 @@
 					</ul>
 				</div>
 
-				<div class="container xuning-box" style="width: 1100px !important;">
+				<div class="container xuning-box" style="width: 1020px !important;">
 				
 				
 					<div style="float: left; margin-left: 8px; margin-bottom: 8px;">
@@ -62,11 +62,11 @@
 							style="margin-bottom: 15px; margin-top: 20px;">
 							<div class="title-hori tit-box">
 								电视直播
-								<span style="float:right;"><a href="${base}/tv" class="more-circle">More</a></span>
+								<span style="float:right;margin-right:10px;"><a href="${base}/tv" class="more-circle">More</a></span>
 							</div>
 
 							<div class="new-box content-dark" style="display: table;">
-								<embed width="980" height="602" src="http://player.hz.letv.com/live.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle" play="true" loop="true" scale="noscale" wmode="opaque" devicefont="false" bgcolor="#000000" name="www_player" menu="true" allowscriptaccess="always" allowfullscreen="true" salign="TL" flashvars="streamid=ws_hunanwsHD_1800&amp;cid=4&amp;gslb=http://live.gslb.letv.com/&amp;autoplay=true&amp;rate=800&amp;typeFrom=letv_live_hao123live&amp;ark=100&amp;cid=4&amp;ch=letv_live_sports_ws_hunanwsHD_1800_1800&amp;usewhitelist=0" type="application/x-shockwave-flash"> 
+								<embed width="1020" height="612" src="http://player.hz.letv.com/live.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle" play="true" loop="true" scale="noscale" wmode="opaque" devicefont="false" bgcolor="#000000" name="www_player" menu="true" allowscriptaccess="always" allowfullscreen="true" salign="TL" flashvars="streamid=ws_hunanwsHD_1800&amp;cid=4&amp;gslb=http://live.gslb.letv.com/&amp;autoplay=true&amp;rate=800&amp;typeFrom=letv_live_hao123live&amp;ark=100&amp;cid=4&amp;ch=letv_live_sports_ws_hunanwsHD_1800_1800&amp;usewhitelist=0" type="application/x-shockwave-flash"> 
 							</div>
 
 						</div>
@@ -81,13 +81,13 @@
 							style="margin-bottom: 15px; margin-top: 20px;">
 							<div class="title-hori tit-box">
 								最新影片
-								<span style="float:right;margin-right:110px;"><a href="${base}/movie" class="more-circle">More</a></span>
+								<span style="float:right;margin-right:20px;"><a href="${base}/movie" class="more-circle">More</a></span>
 							</div>
 
 							<div class="new-box content-dark" style="display: table;">
 								<%for(item in movieTop){%>
 								<div class="live-box"
-									style="width: 156px;text-align:center; margin: 10px 10px 10px 0px;">
+									style="width: 160px;text-align:center; margin: 10px 10px 10px 0px;">
 									<a href="${base}/movie/detail?id=${item.id}" target="_blank"><div class="text-center"
 											style="padding: 0px; margin: 0px; font-size: 0px; line-height: 0px; position: relative;">
 											<img style="width: 156px; height: 186px;"
@@ -130,18 +130,18 @@
 							style="margin-bottom: 15px; margin-top: 20px;">
 							<div class="title-hori tit-box">
 								直播推荐
-								<span style="float:right;margin-right:110px;"><a href="${base}/yy" class="more-circle">More</a></span>
+								<span style="float:right;margin-right:20px;"><a href="${base}/yy" class="more-circle">More</a></span>
 							</div>
 
 							<div class="new-box content-dark" style="display: table;">
 								<%for(item in liveTop){%>
 								<div class="live-box"
-									style="width: 240px; margin: 10px 10px 10px 0px;">
+									style="width: 245px; margin: 10px 10px 10px 0px;">
 									<a
 										href="${base}/live/yy?lChannelId=${item.lChannelId}&lSubchannel=${item.lSubchannel}&sNick=${item.sNick}&sAvatarUrl=${item.sAvatarUrl}"
 										target="_blank"><div
 											style="padding: 0px; margin: 0px; font-size: 0px; line-height: 0px; position: relative;">
-											<img style="width: 242px; height: 130px;"
+											<img style="width: 245px; height: 135px;"
 												class="none-opacity-img" src="${item.sVideoCaptureUrl}">
 											<div class="play-shadow"
 												style="position: absolute; top: 40px; left: 95px;; z-index: -100;">

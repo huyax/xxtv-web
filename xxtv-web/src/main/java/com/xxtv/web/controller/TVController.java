@@ -1,6 +1,7 @@
 package com.xxtv.web.controller;
 
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import com.xxtv.base.common.BaseController;
@@ -25,6 +26,13 @@ public class TVController extends BaseController{
 			if(type == "CCTV"){
 				name = "CCTV-1";
 			}
+		}
+		try {
+			name = new String(name.getBytes("iso8859-1"), "UTF-8");
+			type = new String(type.getBytes("iso8859-1"), "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		List<TVModel> lists = TVModel.dao.getTvByType(type);
 		TVModel tvModel = TVModel.dao.getTv(name);

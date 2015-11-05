@@ -47,5 +47,10 @@ public class EhcacheConstants
 	 * tv  ehcache的key
 	 */
 	public static final String TV = "tv";
+	/**
+	 * 图片
+	 * pic  ehcache的key
+	 */
+	public static final String PIC = "pic";
 
 }

@@ -11,6 +11,7 @@ import com.xxtv.web.model.TVModel;
 public class TVController extends BaseController {
 
 	public void index() {
+		setAttr("menu", "tv");
 		String name = getPara("name");
 		String type = getPara("type");
 		try {

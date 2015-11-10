@@ -10,6 +10,7 @@ import com.xxtv.web.model.MovieModel;
 public class MovieController extends BaseController {
 
 	public void index() {
+		setAttr("menu", "movie");
 		int cate = getPara("cate") == null ? 1 : Integer.parseInt(getPara("cate"));
 		setAttr("cates", CatelogModel.dao.getAll());
 		setAttr("cate", cate);
@@ -25,6 +26,7 @@ public class MovieController extends BaseController {
 	
 	
 	public void detail() {
+		setAttr("menu", "movie");
 		int id = getParaToInt("id");
 		setAttr("movie",MovieModel.dao.findById(id));
 		render("movie/index");

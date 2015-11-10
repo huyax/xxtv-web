@@ -16,6 +16,7 @@ import com.xxtv.tools.CacheUtil;
 import com.xxtv.tools.EhcacheConstants;
 import com.xxtv.web.model.LiveInterfaceModel;
 import com.xxtv.web.model.MovieModel;
+import com.xxtv.web.model.PictureMapModel;
 
 @Control(controllerKey = "/")
 public class IndexController extends BaseController {
@@ -23,7 +24,7 @@ public class IndexController extends BaseController {
 			.getLogger(IndexController.class);
 
 	public void index() {
-		
+		setAttr("menu", "index");
 		List<MovieModel> movieTop = MovieModel.dao.top();
 		
 		setAttr("movieTop", movieTop);
@@ -37,11 +38,13 @@ public class IndexController extends BaseController {
 			setAttr("liveTop", mapList);
 		}
 		
-		//douyu();
+		List<PictureMapModel> picTop = PictureMapModel.dao.getIndexRandom(12);
+		setAttr("picTop", picTop);
 		render("index");
 	}
 
 	public void yy() {
+		setAttr("menu", "live");
 		Integer itemId = getPara(0) == null ?1:getParaToInt(0);
 		String platformKey = "yy";
 		if (itemId == null) {
@@ -74,6 +77,7 @@ public class IndexController extends BaseController {
 	}
 
 	public void douyu() {
+		setAttr("menu", "live");
 		String cateId = getPara("cateId") == null ? "1" : getPara("cateId");
 		String platformKey = "douyu";
 

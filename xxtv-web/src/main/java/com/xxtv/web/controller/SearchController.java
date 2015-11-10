@@ -12,6 +12,7 @@ import com.xxtv.web.model.MovieModel;
 public class SearchController extends BaseController {
 
 	public void index() {
+		setAttr("menu", "movie");
 		String q = getPara("q");
 		if (StrKit.isBlank(q)) {
 			redirect("/movie");

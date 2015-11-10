@@ -13,6 +13,7 @@ import com.xxtv.web.model.PictureModel;
 public class PicController  extends BaseController{
 	
 	public void index() {
+		setAttr("menu", "pic");
 		int cate = getPara("cate") == null ? 2 : Integer.parseInt(getPara("cate"));
 		setAttr("cates", PictureCatelogModel.dao.getAll());
 		setAttr("cate", cate);
@@ -23,13 +24,15 @@ public class PicController  extends BaseController{
 		setAttr("list", page.getList());
 		setAttr("totalPage", page.getTotalPage());
 		setAttr("currentPage", pageNum);
+		
 		render("picture");
 	}
 	public void picture() {
+		setAttr("menu", "pic");
 		int id = getParaToInt("id");
 		int pageNum = getPara("page") == null ? 1 : getParaToInt("page");		
 		Page<PictureModel> page = PictureModel.dao.paginate(pageNum, 1,
-				"select pic.* ", " FROM picture pic  where pic.map_id="+id);
+				"select pic.* ", " FROM picture pic LEFT JOIN picture_map_relation relation on pic.id = relation.pic_id where relation.map_id="+id);
 		setAttr("list", page.getList());
 		setAttr("totalPage", page.getTotalPage());
 		setAttr("currentPage", pageNum);

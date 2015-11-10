@@ -18,17 +18,7 @@
 <body>
 	
 	<div class="maxtopbar">
-	<div class="nav-head" style="width: 100%;">
-			<div id="nav_bar"
-				style="width: 65%; margin-left: auto; margin-right: auto; height: 46px; text-align: left;">
-				<a id="index" href="${base}/"><li>首页</li></a>
-				<a id="dota2" href="${base}/douyu">
-				<li>游戏直播</li></a><a id="movie" href="#"><li >电影下载</li></a>
-				<a id="tv" href="${base}/tv"><li>电视台</li></a>
-				<a id="pic" href="${base}/pic"><li class="h-active">美图</li></a>
-					
-			</div>
-		</div>
+	<<% include("/pager/common/nav-head.html"){} %>
 	
 		<div class="maxtopmainbar">
 			<div
@@ -62,26 +52,7 @@
 				</div>
 			</div>
 			<!-- footbar -->
-			<div
-				style="width: 100%; min-width: 1100px; text-align: center; display: table; position: absolute;padding-top: 48px;">
-				
-				<div
-					style="background-color: rgb(0, 0, 0); padding-top: 15px; padding-bottom: 15px; position: relative;">
-					<div
-						style="width: 1100px; margin: 0 auto; line-height: 20px; position: relative; height: 30px;">
-						
-					</div>
-				</div>
-				<div class="footbar" style="padding-bottom: 10px;">
-					<div style="position: relative; width: 1100px; margin: 0 auto;">
-						
-							<div style="float: center; margin-left: 20px"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256549765'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256549765%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script><strong><font size="4">xxtv.online</font></strong></div>
-							
-						</div>
-						
-					</div>
-				</div>
-			<!-- end of footbar -->
+			<% include("/pager/common/footer.html"){} %>
 		</div>
 	</div>
 </body>

@@ -11,6 +11,7 @@ public class LiveController extends BaseController
 
 	public void douyu()
 	{
+		setAttr("menu", "live");
 		String nick = getPara("nick");
 		try
 		{
@@ -29,6 +30,7 @@ public class LiveController extends BaseController
 
 	public void yy()
 	{
+		setAttr("menu", "live");
 		String sNick = getPara("sNick");
 		try
 		{

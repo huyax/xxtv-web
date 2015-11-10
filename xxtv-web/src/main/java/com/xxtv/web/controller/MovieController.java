@@ -1,5 +1,7 @@
 package com.xxtv.web.controller;
 
+import java.util.List;
+
 import com.jfinal.plugin.activerecord.Page;
 import com.xxtv.base.common.BaseController;
 import com.xxtv.core.plugin.annotation.Control;
@@ -26,6 +28,8 @@ public class MovieController extends BaseController {
 	
 	
 	public void detail() {
+		List<MovieModel> movieTop = MovieModel.dao.top();
+		setAttr("list", movieTop);
 		setAttr("menu", "movie");
 		int id = getParaToInt("id");
 		setAttr("movie",MovieModel.dao.findById(id));

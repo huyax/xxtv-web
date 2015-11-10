@@ -42,16 +42,34 @@
 				style="margin-top: 0px; margin-bottom: 1px; padding-bottom: 1px;">
 				<!-- Where content to be added -->
 				<div class="container xuning-box" style="margin: 40px auto;">
-					<div style="margin-left: 95px;">
-						<div
-							style="width: 80px; height: 30px; background-color: transparent; position: absolute; margin-top: 520px; text-align: center; margin-left: 775px; line-height: 30px; color: transparent;"></div>
-						<div
-							style="width: 220px; height: 60px; background-color: transparent; position: absolute; margin-top: 250px; text-align: center; margin-left: 335px; line-height: 30px; color: transparent;"></div>
-						${movie.content}
+					<div style="margin-left: 95px; width:700px;float:left;background-color:#F6FFDD;">
+						<div style="margin: 10px;">
+						${movie.content}	
+						</div>
+					</div>
+					<div style="width:300px; float:left;">
+						<table class="table-list-small"
+						style=" width:70%;margin-left: 10px ;">
+						<tbody>
+							<tr class="shead" style="height: 28px;">
+								<td>最新影片</td>
+							</tr>
+							<% for(item in list){%>
+							<tr>
+								<td style="cursor: pointer;" onclick="todetail('${base}/movie/detail?id=${item.id}');"><span style="margin-left: 30px;">${item.name}</span></td>
+							</tr>
+							<%}%>
+							
+						</tbody>
+					</table>
 					</div>
 				</div>
+				
+				
 			</div>
-			<!-- footbar -->
+			
+			
+			
 			<% include("/pager/common/footer.html"){} %>
 		</div>
 	</div>

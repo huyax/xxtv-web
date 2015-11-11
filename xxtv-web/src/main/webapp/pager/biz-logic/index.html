@@ -127,38 +127,6 @@
 					</div>
 					
 					
-					<!-- 以下为图集 -->
-					<div style="float: left; margin-left: 8px; margin-bottom: 8px;">
-						<div class="home-box"
-							style="margin-bottom: 15px; margin-top: 20px;">
-							<div class="title-hori tit-box">
-								推荐图集
-								<span style="float:right;margin-right:20px;"><a href="${base}/pic" class="more-circle">More</a></span>
-							</div>
-
-							<div class="new-box content-dark" style="display: table;">
-								<%for(item in picTop){%>
-								<div class="live-box"
-									style="width: 130px;text-align:center; margin: 10px 30px 10px 10px;">
-									<a href="${base}/pic/picture?id=${item.id}" target="_blank">
-										<img src="${item.context}"  width="130" height="170"  style="display: block;padding: 8px;background: #fff">
-										<div style="width: 100%; display: table; position: relative; border: 1px #111 solid; background-color: rgb(15, 15, 15);">
-											<div style="font-size: 14px; font-weight: 400; line-height: 30px; text-align: center; color: #eee;">
-												<div class="overflow-text" style="width: 145px;">
-													${item.name}</div>
-											</div>
-										</div></a>
-								</div>
-								<%}%>
-
-							</div>
-
-						</div>
-
-
-
-					</div>
-					
 					<!-- 以下为电影 -->
 					<div style="float: left; margin-left: 8px; margin-bottom: 8px;">
 						<div class="home-box"
@@ -206,6 +174,40 @@
 
 
 					</div>
+					
+					<!-- 以下为图集 -->
+					<div style="float: left; margin-left: 8px; margin-bottom: 8px;">
+						<div class="home-box"
+							style="margin-bottom: 15px; margin-top: 20px;">
+							<div class="title-hori tit-box">
+								推荐图集
+								<span style="float:right;margin-right:20px;"><a href="${base}/pic" class="more-circle">More</a></span>
+							</div>
+
+							<div class="new-box content-dark" style="display: table;">
+								<%for(item in picTop){%>
+								<div class="live-box"
+									style="width: 130px;text-align:center; margin: 10px 30px 10px 10px;">
+									<a href="${base}/pic/picture?id=${item.id}" target="_blank">
+										<img src="${item.context}"  width="130" height="170"  style="display: block;padding: 8px;background: #fff">
+										<div style="width: 100%; display: table; position: relative; border: 1px #111 solid; background-color: rgb(15, 15, 15);">
+											<div style="font-size: 14px; font-weight: 400; line-height: 30px; text-align: center; color: #eee;">
+												<div class="overflow-text" style="width: 145px;">
+													${item.name}</div>
+											</div>
+										</div></a>
+								</div>
+								<%}%>
+
+							</div>
+
+						</div>
+
+
+
+					</div>
+					
+					
 
 				</div>
 

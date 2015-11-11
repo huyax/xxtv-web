@@ -119,7 +119,7 @@
     <div class="list">
      <ul style="list-style: none;margin: 0;padding: 0;width: 1200px;">
      <%for(itm in list2){%>
-        <li style="float: left;padding: 10px;margin-right: 12px;"> <a target="_blank" href="${base}/pic/picture?id=${itm.id}"> <img  src="${itm.context}"  /> <span style="display: block;padding-top: 5px;text-align: center;color: #666;">${itm.name}</span> </a> </li>
+        <li style="float: left;padding: 10px;margin-right: 12px;"> <a target="_blank" href="${base}/pic/picture?id=${itm.id}"> <img  src="${itm.context}"  /> <span style="display: block;padding-top: 5px;text-align: center;color: #666;"><div class="overflow-text" style="width: 130px;">${itm.name}</div></span> </a> </li>
       <%}%>
       </ul>
     </div>

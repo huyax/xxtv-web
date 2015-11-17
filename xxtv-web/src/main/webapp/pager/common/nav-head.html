@@ -1,4 +1,48 @@
 <!-- 导航 -->
+<script type="text/javascript"> 
+// 设置为主页 
+function SetHome(obj,vrl){ 
+try{ 
+obj.style.behavior='url(#default#homepage)';obj.setHomePage(vrl); 
+} 
+catch(e){ 
+if(window.netscape) { 
+try { 
+netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
+} 
+catch (e) { 
+alert("此操作被浏览器拒绝！ 请在浏览器地址栏输入“about:config”并回车 然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。"); 
+} 
+var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch); 
+prefs.setCharPref('browser.startup.homepage',vrl); 
+}else{ 
+alert("您的浏览器不支持，请按照下面步骤操作：1.打开浏览器设置。2.点击设置网页。3.输入："+vrl+"点击确定。"); 
+} 
+} 
+} 
+// 加入收藏 兼容360和IE6 
+function shoucang(sTitle,sURL) 
+{ 
+try 
+{ 
+window.external.addFavorite(sURL, sTitle); 
+} 
+catch (e) 
+{ 
+try 
+{ 
+window.sidebar.addPanel(sTitle, sURL, ""); 
+} 
+catch (e) 
+{ 
+alert("加入收藏失败，请使用Ctrl+D进行添加"); 
+} 
+} 
+} 
+function lianxi(){
+	alert("QQ邮箱：290259750@qq.com、387614798@qq.com"); 
+}
+</script>
 <div class="nav-head" style="width: 100%;">
 			<div id="nav_bar" style="width: 65%; margin-left: auto; margin-right: auto; height: 46px; text-align: left;">
 				<a id="index" href="${base}/"><%if(menu == 'index'){%> <li class="h-active">首页</li><%}else{%><li>首页</li><%}%></a>
@@ -6,5 +50,12 @@
 				<a id="movie" href="${base}/movie"><%if(menu == 'movie'){%> <li class="h-active">电影下载</li><%}else{%><li>电影下载</li><%}%></a> 
 				<a id="tv" href="${base}/tv"><%if(menu == 'tv'){%> <li class="h-active">电视台</li><%}else{%><li>电视台</li><%}%></a>
 				<!-- <a id="pic" href="${base}/pic"><%if(menu == 'pic'){%> <li class="h-active">美女套图</li><%}else{%><li>美女套图</li><%}%></a> -->
-			</div>
+				<div id="nav_bar" style="float: right;">
+<li class="fore1"><a href="javascript:void(0)" onclick="SetHome(this,window.location)">设为首页</a></li> 
+<li class="ge">|</li> 
+<li class="fore2"><a href="javascript:void(0)" onclick="shoucang(document.title,window.location)">加入收藏</a></li> 
+<li class="ge">|</li> 
+<li class="fore2"><a href="javascript:void(0)"  onclick="lianxi();">联系方式</a></li> 
+</div>
+	</div>
 </div>

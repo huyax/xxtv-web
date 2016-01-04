@@ -24,4 +24,8 @@ public class BookModel  extends Model<BookModel>{
 		String sql = "SELECT DISTINCT catelogs FROM book";
 		return dao.find(sql);
 	}
+	public List<BookModel> getIndex(int i){
+		String sql = "SELECT * FROM book order by hits desc limit ?";
+		return dao.find(sql,i);
+	}
 }

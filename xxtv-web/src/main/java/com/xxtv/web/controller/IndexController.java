@@ -14,6 +14,7 @@ import com.xxtv.base.common.BaseController;
 import com.xxtv.core.plugin.annotation.Control;
 import com.xxtv.tools.CacheUtil;
 import com.xxtv.tools.EhcacheConstants;
+import com.xxtv.web.model.BookModel;
 import com.xxtv.web.model.LiveInterfaceModel;
 import com.xxtv.web.model.MovieModel;
 import com.xxtv.web.model.PictureMapModel;
@@ -40,6 +41,9 @@ public class IndexController extends BaseController {
 		
 		List<PictureMapModel> picTop = PictureMapModel.dao.getIndexRandom(12);
 		setAttr("picTop", picTop);
+		List<BookModel> bookTop = BookModel.dao.getIndex(12);
+		setAttr("bookTop", bookTop);
+		
 		render("index");
 	}
 

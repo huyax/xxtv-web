@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>熊熊TV - 专业视频直播网站</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-siteapp-platform">
+<meta name="apple-itunes-app" content="app-id=990892583">
+<meta name="keywords"
+	content="xxtv,熊熊TV,游戏, dota, dota2, dota2直播, LOL, LOL直播">
+<meta name="description" content="熊熊TV 专业视频直播网站">
+<link rel="shortcut icon"
+	href="${base}/assets/biz-logic/images/favicon.ico" type="image/x-icon" />
+<link href="${base}/assets/biz-logic/css/main.css" rel="stylesheet"
+	type="text/css">
+<link href="${base}/assets/biz-logic/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link href="${base}/assets/biz-logic/css/book/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript"
+	src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+	function change(cate) {
+		window.location.href = '${base}/book?cate=' + cate + "&page=1";
+	}
+
+</script>
+</head>
+<body>
+
+	<div class="maxtopbar">
+		<% include("/pager/common/nav-head.html"){} %>
+		<div class="maxtopmainbar">
+			<div
+				style="width: 100%; height: 100px; background: url('${base}/assets/biz-logic/img/back.jpg') repeat-x; background-position: center;"></div>
+
+		</div>
+		<div class="main-shadow-box">
+			<div class="main-container"
+				style="margin-top: 0px; margin-bottom: 1px; padding-bottom: 1px;">
+				<div class="secoundbar-outer">
+					<ul class="secoundbar" style="margin-top: 20px; margin-bottom: 0px">
+
+					</ul>
+				</div>
+
+				<div class="container xuning-box" style="width: 1028px !important;">
+
+
+					<div style="float: left; margin-left: 8px; margin-bottom: 8px;">
+						<div class="home-box"
+							style="margin-bottom: 15px; margin-top: 20px;">
+							<div class="title-hori tit-box">
+								小说分类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="float: right; margin-right: 160px;margin-bottom: 10px;">
+									<div>
+                                        <% for(item in cates){%>
+											<div <%if(item.name == cate){%> class="nabtn active" <%}else{%>class="nabtn " <%}%>  style="padding: 2px 8px;" onclick="javascript:change('${item.name}');">${item.name}</div>
+										<%}%>
+									</div>
+								</span>
+							</div>
+
+							<div class="new-box content-dark" style="display: table;">
+								<div class="picul">
+									<%var i =1;for(item in list){%>
+									<div class="storelistbt5">
+										<ul>
+											<li class="storelistbt5z">${i++}.</li>
+											<li class="storelistbt5a"><a  href="${base}/book/cateList?id=${item.id}" target="_blank"><img src="${item.img}" /></a>
+												<div class="top5">
+													<a  href="${base}/book/cateList?id=${item.id}" target="_blank"class="bookname" >${item.name}</a><span class="bookdata">月点击：${item.hits}</span>
+												</div>
+												<p>
+													作者：<a
+														href="#" rel="nofollow">${item.author}</a>分类：${item.cate}&nbsp;字数：${item.number}&nbsp;状态：<span
+														class="zhuangtai">已${item.status}</span>&nbsp;
+												</p>
+												<p>${item.desc}</p>
+												<p>
+													最新章节：${item.end}
+												</p></li>
+											<li class="storelistbt5b"><p>
+													<a href="${base}/book/cateList?id=${item.id}" target="_blank">全文阅读</a>
+												</p>
+												</li>
+										</ul>
+									</div>
+									<%}%>
+								</div>
+
+
+							</div>
+
+						</div>
+
+
+
+					</div>
+						<% include("/pager/paginate/book.html"){} %>
+					
+				</div>
+
+
+			</div>
+			<!-- footbar -->
+			<% include("/pager/common/footer.html"){} %>
+		</div>
+	</div>
+
+</body>
+</html>

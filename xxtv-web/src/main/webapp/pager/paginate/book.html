@@ -1,0 +1,44 @@
+<script>
+	function page(target){
+		window.location.href = target;
+	}
+</script>
+	<% var startPage = currentPage - 2;
+	 if (startPage < 1){
+	    startPage = 1;
+	  }
+	
+		var endPage = currentPage + 2;
+		if (endPage > totalPage){
+			endPage = totalPage;} %>
+<div style="margin-left: auto; margin-right: auto; text-align: center; margin-bottom: 10px;">
+<div class="filterbox">
+        
+			<%
+			if ((totalPage - currentPage) < 2){
+				endPage = totalPage;
+			}
+			if (currentPage == 1){
+                
+			}else{%>
+				<div class="nabtn pagerwidth" onclick="page('${base}/book?cate=${cate}&page=1');">&lt;&lt;</div>
+				<div class="nabtn pagerwidth" onclick="page('${base}/book?cate=${cate}&page=${currentPage-1}');">&lt;</div>
+                
+			<%}%>
+			
+			<%for(var i=startPage;i<=endPage;i++){
+				if(currentPage == i){%>
+					<div class="nabtn active pagerwidth">${i}</div>
+				<%}else{%>
+					<div class="nabtn pagerwidth" onclick="page('${base}/book?cate=${cate}&page=${i}');">${i}</div>
+				<%}}%>
+			
+			<%if (currentPage == totalPage){
+				
+			}else{%>
+				<div class="nabtn pagerwidth" onclick="page('${base}/book?cate=${cate}&page=${currentPage+1}');">&gt;</div>
+				<div class="nabtn pagerwidth" onclick="page('${base}/book?cate=${cate}&page=${totalPage}');">&gt;&gt;</div>
+			<%}%>
+        
+	</div>
+</div>

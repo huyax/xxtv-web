@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>熊熊TV - 专业视频直播网站</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-siteapp-platform">
+<meta name="apple-itunes-app" content="app-id=990892583">
+<meta name="keywords"
+	content="xxtv,熊熊TV,游戏, dota, dota2, dota2直播, LOL, LOL直播">
+<meta name="description" content="熊熊TV 专业视频直播网站">
+<link rel="shortcut icon"
+	href="${base}/assets/biz-logic/images/favicon.ico" type="image/x-icon" />
+<link href="${base}/assets/biz-logic/css/main.css" rel="stylesheet"
+	type="text/css">
+<link href="${base}/assets/biz-logic/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link href="${base}/assets/biz-logic/css/book/p.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript"
+	src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+	function change(cate) {
+		window.location.href = '${base}/book?cate=' + cate + "&page=1";
+	}
+
+</script>
+</head>
+<body>
+
+	<div class="maxtopbar">
+		<% include("/pager/common/nav-head.html"){} %>
+		<div class="maxtopmainbar">
+			<div
+				style="width: 100%; height: 100px; background: url('${base}/assets/biz-logic/img/back.jpg') repeat-x; background-position: center;"></div>
+
+		</div>
+		<div class="main-shadow-box">
+			<div class="main-container"
+				style="margin-top: 0px; margin-bottom: 1px; padding-bottom: 1px;">
+				<div class="secoundbar-outer">
+					<ul class="secoundbar" style="margin-top: 20px; margin-bottom: 0px">
+
+					</ul>
+				</div>
+
+				<div class="container xuning-box" style="width: 1028px !important;">
+					<div id="info">
+						<div class="hh">${book.name}</div>
+					</div>
+					<div id="info">
+						<div style="color: white;font-size: 20px;;">${book.chapter_name}</div>
+					</div>
+		<div style="float: left;font-size: 15px;">${book.context}</div>
+			
+
+
+			</div>
+			<!-- footbar -->
+			<% include("/pager/common/footer.html"){} %>
+		</div>
+	</div>
+
+</body>
+</html>

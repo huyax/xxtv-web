@@ -1,0 +1,255 @@
+body {
+	font-family: SimSun, PMingLiU, Verdana, Arial, sans-serif;
+	font-size: 16px;
+	color: #333;
+	margin: 0px
+}
+
+a {
+	color: #0069A2;
+	text-decoration: none
+}
+
+a:hover {
+	color: #E14627;
+	text-decoration: underline
+}
+
+.hh, .hh a {
+	font-weight: bold;
+	FONT-SIZE: 30px;
+	COLOR: #e14627
+}
+
+.hh {
+	margin: 20px 0px
+}
+
+#title {
+	color: #E14627;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 200%
+}
+
+#info a {
+	color: #E14627
+}
+
+#info {
+	margin-bottom: 15px;
+	text-align: center;
+	line-height: 100%
+}
+
+#conml {
+	width: 100%;
+	margin: auto;
+	text-align: center;
+	font-size: 16px
+}
+
+.mlfm {
+	padding-right: 10px
+}
+
+.mlewm {
+	padding-left: 10px
+}
+
+.mltj, .zjtj, .mlxs, .zjxs {
+	line-height: 100%;
+	width: 900px;
+	text-align: left;
+	font-size: 16px;
+	letter-spacing: 0px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.mlxs, .zjxs {
+	PADDING-bottom: 20px
+}
+
+.mltj {
+	PADDING-top: 5px
+}
+
+.zjtj {
+	PADDING-bottom: 5px
+}
+
+.zjxs {
+	PADDING-top: 5px
+}
+
+#content {
+	text-align: left;
+	font-size: 22px;
+	color: #333;
+	width: 900px;
+	text-align: left;
+	MARGIN: 0px auto
+}
+
+#headlink {
+	line-height: 200%;
+}
+
+#footlink {
+	PADDING-top: 20px;
+	PADDING-bottom: 20px;
+	line-height: 100%;
+	font-size: 18px;
+	font-weight: bold;
+	width: 100%;
+	text-align: center
+}
+
+.acss {
+	width: 900px;
+	text-align: left;
+	line-height: 200%;
+	text-align: center;
+	background: #CFDBE4;
+	table-layout: fixed
+}
+
+.vcss {
+	background: #CFDBE4;
+	text-align: left;
+	width: 900px
+}
+
+.ccss {
+	background: #E6F3FF;
+	text-align: left;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	border: 1px solid #ddd
+}
+
+.ccss a {
+	width: 320px;
+	padding-left: 10px
+}
+
+.ccss a:visited {
+	color: #996699;
+	text-decoration: none
+}
+
+.bcont {
+	font-size: 16px
+}
+
+.x a {
+	font-size: 18px
+}
+
+#topnav {
+	BACKGROUND: #5187c3;
+	HEIGHT: 40px;
+	WIDTH: 100%
+}
+
+#topnav .container {
+	Z-INDEX: 13256888;
+	BACKGROUND: #5187c3;
+	WIDTH: 100%;
+	LEFT: 0px;
+	CURSOR: pointer;
+	COLOR: #fff;
+	POSITION: fixed;
+	HEIGHT: 40px
+}
+
+#topnav .menu {
+	FONT-SIZE: 14px;
+	FLOAT: left;
+	WIDTH: 60%;
+	COLOR: #fff
+}
+
+#topnav .menu LI {
+	FLOAT: left;
+	MARGIN: 0px 1px;
+	LINE-HEIGHT: 40px;
+	LIST-STYLE-TYPE: none;
+	TEXT-ALIGN: center
+}
+
+#topnav .menu LI A {
+	PADDING-RIGHT: 10px;
+	DISPLAY: block;
+	PADDING-LEFT: 10px;
+	FONT-WEIGHT: bolder;
+	FONT-SIZE: 16px;
+	FLOAT: left;
+	PADDING-BOTTOM: 0px;
+	COLOR: #fff
+}
+
+#topnav .m LI A:hover {
+	BACKGROUND: #4471a4
+}
+
+#topnav A.index {
+	BACKGROUND: #4471a4
+}
+
+#topnav .you {
+	OVERFLOW: hidden;
+	COLOR: #fff;
+	LINE-HEIGHT: 40px;
+	FLOAT: right;
+	TEXT-ALIGN: right;
+	WIDTH: 40%
+}
+
+#topnav .you A {
+	PADDING-RIGHT: 7px;
+	DISPLAY: block;
+	PADDING-LEFT: 7px;
+	FONT-WEIGHT: bolder;
+	FONT-SIZE: 16px;
+	FLOAT: right;
+	COLOR: #fff;
+	LINE-HEIGHT: 40px;
+	TEXT-ALIGN: right
+}
+
+#topnav .you A:hover {
+	BACKGROUND: #4471a4
+}
+
+.fx {
+	margin-top: 12px
+}
+
+.ax {
+	text-align: center
+}
+
+.foot {
+	font-size: 14px;
+	color: #666;
+	line-height: 180%
+}
+
+.con_top {
+	width: 935px;
+	margin: 0 auto
+}
+
+.top_1, .top_2, .top_3 {
+	width: 300px;
+	height: 250px;
+	padding: 2px;
+	border: #88C6E5 1px dotted;
+	float: left;
+	margin-left: 4px
+}

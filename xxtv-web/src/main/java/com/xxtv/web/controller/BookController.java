@@ -19,16 +19,16 @@ public class BookController  extends BaseController{
 
 	public void index() {
 		setAttr("menu", "book");
-		String cate = getPara("cate") == null ? "点击排行" : getPara("cate");
+		String cate = getPara("cate") == null ? "djph" : getPara("cate");
 		setAttr("cates", BookCatelogsModel.dao.getAll());
 		setAttr("cate", cate);
 		System.out.println(cate);
 		int pageNum = getPara("page") == null ? 1 : getParaToInt("page");
 		String sql;
-		if(cate.equals("点击排行")){
+		if(cate.equals("djph")){
 		sql = "from book  order by hits desc";
 		}else{
-		sql = "from book  where cate='"+cate+"' order by hits desc";
+		sql = "from book  where iden='"+cate+"' order by hits desc";
 		}
 		Page<BookModel> page = BookModel.dao.paginate(pageNum, 10,
 				"select  *  ", sql);

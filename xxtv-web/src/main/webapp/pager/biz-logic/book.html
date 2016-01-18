@@ -52,7 +52,7 @@
 								小说分类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="float: right; margin-right: 160px;margin-bottom: 10px;">
 									<div>
                                         <% for(item in cates){%>
-											<div <%if(item.name == cate){%> class="nabtn active" <%}else{%>class="nabtn " <%}%>  style="padding: 2px 8px;" onclick="javascript:change('${item.name}');">${item.name}</div>
+											<div <%if(item.iden == cate){%> class="nabtn active" <%}else{%>class="nabtn " <%}%>  style="padding: 2px 8px;" onclick="javascript:change('${item.iden}');">${item.name}</div>
 										<%}%>
 									</div>
 								</span>

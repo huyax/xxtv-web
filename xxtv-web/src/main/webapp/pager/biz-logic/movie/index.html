@@ -52,7 +52,18 @@
 						<div class="overflow-text" style="margin: 10px;width:720px;">
 						${movie.content}	
 						</div>
+															<!--高速版-->
+<div id="SOHUCS" sid="${movie.id}"></div>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: 'cysfDRSQt',
+        conf: 'prod_6b85ab9dd9b5a8a7e1486e1e3ff2e584'
+    });
+</script>   
 					</div>
+     
+					
 					<div style="width:260px; float:left;">
 						<table class="table-list-small"
 						style=" width:100%;margin-left: 10px ;">
@@ -71,9 +82,9 @@
 					</div>
 				</div>
 				
-				
 			</div>
 			
+			   
 			
 			
 			<% include("/pager/common/footer.html"){} %>

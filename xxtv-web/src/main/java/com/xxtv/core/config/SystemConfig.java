@@ -16,6 +16,7 @@ import com.jfinal.plugin.ehcache.EhCachePlugin;
 import com.xxtv.base.common.MyBeetlRenderFactory;
 import com.xxtv.core.plugin.annotation.ControlPlugin;
 import com.xxtv.core.plugin.annotation.TablePlugin;
+import com.xxtv.core.plugin.mongodb.MongodbPlugin;
 import com.xxtv.tools.DevConstants;
 import com.xxtv.tools.SysConstants;
 
@@ -66,6 +67,9 @@ public class SystemConfig extends JFinalConfig
 
 		// 配置缓存
 		me.add(new EhCachePlugin());
+		
+		//mongodb
+		me.add(new MongodbPlugin("xxtv"));
 
 		// 配置ActiveRecord插件
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(druidPlugin);

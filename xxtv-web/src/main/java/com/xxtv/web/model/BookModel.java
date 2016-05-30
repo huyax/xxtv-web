@@ -13,13 +13,13 @@ import com.xxtv.core.plugin.annotation.Table;
  * @date 2016年1月4日
  *
  */
-@SuppressWarnings("serial")
-@Table(tableName = "book")
-public class BookModel  extends Model<BookModel>{
+//@SuppressWarnings("serial")
+//@Table(tableName = "book")
+public class BookModel {
 	private static final Logger			LOGGER	= LoggerFactory.getLogger(BookModel.class);
 
 	public static final BookModel	dao		= new BookModel();
-	
+	/*
 	public List<BookModel> getCatelogs(){
 		String sql = "SELECT DISTINCT catelogs FROM book";
 		return dao.find(sql);
@@ -28,4 +28,5 @@ public class BookModel  extends Model<BookModel>{
 		String sql = "SELECT * FROM book order by hits desc limit ?";
 		return dao.find(sql,i);
 	}
+	*/
 }

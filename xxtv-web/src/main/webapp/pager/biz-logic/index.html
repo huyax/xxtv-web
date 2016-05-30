@@ -111,7 +111,7 @@
 												<div style="float: right; margin-right: 10px;">
 													<span class="glyphicon glyphicon-eye-open"></span>
 													${item.iActivityCount} <span
-														class="glyphicon glyphicon-map-marker"></span> yy
+														class="glyphicon glyphicon-map-marker"></span> 虎牙
 												</div>
 											</div>
 										</div></a>
@@ -194,53 +194,6 @@
 											<div style="font-size: 14px; font-weight: 400; line-height: 30px; text-align: center; color: #eee;">
 												<div class="overflow-text" style="width: 145px;">
 													${item.name}</div>
-											</div>
-										</div></a>
-								</div>
-								<%}%>
-
-							</div>
-
-						</div>
-
-
-
-					</div>
-					<!-- 以下为小说 -->
-					<div style="float: left; margin-left: 8px; margin-bottom: 8px;">
-						<div class="home-box"
-							style="margin-bottom: 15px; margin-top: 20px;">
-							<div class="title-hori tit-box">
-								热门小说
-								<span style="float:right;margin-right:20px;"><a href="${base}/book" class="more-circle">More</a></span>
-							</div>
-
-							<div class="new-box content-dark" style="display: table;">
-								<%for(item in bookTop){%>
-								<div class="live-box"
-									style="width: 160px;text-align:center; margin: 10px 10px 10px 0px;box-shadow: 0 0 3px #000;">
-									<a href="${base}/book/cateList?id=${item.id}" target="_blank"><div class="text-center"
-											style="padding: 0px; margin: 0px; font-size: 0px; line-height: 0px; position: relative;">
-											<img style="width: 126px; height: 150px;"
-												class="none-opacity-img" src="${item.img}">
-											<div class="play-shadow"
-												style="position: absolute; top: 40px; left: 95px;; z-index: -100;">
-
-											</div>
-										</div>
-										<div
-											style="width: 100%; display: table; position: relative; border: 1px #111 solid; background-color: rgb(15, 15, 15);">
-
-											<div
-												style="font-size: 14px; font-weight: 400; line-height: 30px; text-align:center; color: #eee;">
-												<div class="overflow-text" style="width: 160px;">${item.name}</div>
-											</div>
-											<div
-												style="color: #999; text-align: left; font-size: 11px; display: table; width: 100%; padding: 0 0px 0px 0px;">
-
-												<div style="text-align:center;">
-													${item.author}  
-												</div>
 											</div>
 										</div></a>
 								</div>

@@ -23,7 +23,7 @@ public class PictureMapModel extends Model<PictureMapModel>{
 	
 	public List<PictureMapModel> getRandom()
 	{
-		String sql = "SELECT * FROM picture_map where catelogs = 9 ORDER BY RAND() LIMIT 6";
+		String sql = "SELECT * FROM picture_map where catelogs = 8 ORDER BY RAND() LIMIT 6";
 		return dao.find(sql);
 	}
 

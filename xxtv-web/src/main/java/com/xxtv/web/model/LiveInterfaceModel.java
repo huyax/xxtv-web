@@ -16,11 +16,11 @@ public class LiveInterfaceModel extends Model<LiveInterfaceModel>
 
 	private static final Logger				LOGGER	= LoggerFactory.getLogger(LiveInterfaceModel.class);
 
-	public LiveInterfaceModel getLiveInterface(String platform, String game)
-	{
-		String sql = "select * from live_interface where platform=? and game=?";
-		return dao.findFirstByCache(EhcacheConstants.LIVE_INTERFACE, platform + "_" + game, sql, platform, game);
-	}
+//	public LiveInterfaceModel getLiveInterface(String platform, String game)
+//	{
+//		String sql = "select * from live_interface where platform=? and game=?";
+//		return dao.findFirstByCache(EhcacheConstants.LIVE_INTERFACE, platform + "_" + game, sql, platform, game);
+//	}
 
 	public String getCateInterface(String platform)
 	{

@@ -34,7 +34,7 @@ public class MovieModel extends Model<MovieModel> {
 	}
 
 	public List<MovieModel> top() {
-		String sql = "select movie.*,catelogs.name cateName from movie left join catelogs on movie.catelog=catelogs.id  where movie.catelog between 1 and 9 order by movie.cTime desc limit 18";
+		String sql = "select movie.*,catelogs.name cateName from movie left join catelogs on movie.catelog=catelogs.id  where movie.catelog between 1 and 9 order by movie.pub_date desc limit 18";
 		return dao.find(sql);
 	}
 }

@@ -16,7 +16,7 @@ import com.xxtv.web.model.BookModel;
  */
 @Control(controllerKey = "/book")
 public class BookController  extends BaseController{
-
+/*
 	public void index() {
 		setAttr("menu", "book");
 		String cate = getPara("cate") == null ? "djph" : getPara("cate");
@@ -57,4 +57,5 @@ public class BookController  extends BaseController{
 		setAttr("book",model);
 		render("book/index");
    }
+   */
 }

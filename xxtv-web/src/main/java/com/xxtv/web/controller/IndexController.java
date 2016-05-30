@@ -41,8 +41,9 @@ public class IndexController extends BaseController {
 		
 		List<PictureMapModel> picTop = PictureMapModel.dao.getIndexRandom(12);
 		setAttr("picTop", picTop);
-		List<BookModel> bookTop = BookModel.dao.getIndex(12);
-		setAttr("bookTop", bookTop);
+		
+//		List<BookModel> bookTop = BookModel.dao.getIndex(12);
+//		setAttr("bookTop", bookTop);
 		
 		render("index");
 	}

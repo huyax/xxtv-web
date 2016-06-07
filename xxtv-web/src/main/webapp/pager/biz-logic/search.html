@@ -51,7 +51,7 @@
 							</tr>
 							<% for(item in list){%>
 							<tr>
-								<td style="cursor: pointer;" onclick="todetail('${base}/movie/detail?id=${item.id}');"><span style="margin-left: 10px;">${item.pub_date}</span>     <span style="margin-left: 30px;">${item.name}</span></td>
+								<td style="cursor: pointer;" onclick="todetail('${base}/movie/detail?id=${item._id}');"><span style="margin-left: 10px;">${item.pub_date}</span>     <span style="margin-left: 30px;">${item.name}</span></td>
 							</tr>
 							<%}%>
 							

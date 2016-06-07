@@ -35,6 +35,10 @@ public class MongoKit {
     public static void updateFirst(String collectionName, Map<String, Object> q, Map<String, Object> o) {
         MongoKit.getCollection(collectionName).findAndModify(toDBObject(q), toDBObject(o));
     }
+    
+    public static void updateFirst(String collectionName, Map<String, Object> q,  Record record) {
+        MongoKit.getCollection(collectionName).findAndModify(toDBObject(q), toDbObject(record));
+    }
 
     public static int removeAll(String collectionName) {
         return MongoKit.getCollection(collectionName).remove(new BasicDBObject()).getN();
@@ -59,6 +63,23 @@ public class MongoKit {
 
     public static Record findFirst(String collectionName) {
         return toRecord(MongoKit.getCollection(collectionName).findOne());
+    }
+    
+    public static List<Record> findAll(String collectionName) {
+        return toRecords(MongoKit.getCollection(collectionName).find());
+    }
+    
+    public static List<Record> findByCondition(String collectionName, Map<String, Object> filter) {
+    	  BasicDBObject conditons = new BasicDBObject();
+    	   if (filter != null) {
+               Set<Entry<String, Object>> entrySet = filter.entrySet();
+               for (Entry<String, Object> entry : entrySet) {
+                   String key = entry.getKey();
+                   Object val = entry.getValue();
+                   conditons.put(key, val);
+               }
+           }
+        return toRecords(MongoKit.getCollection(collectionName).find(conditons));
     }
 
     public static Page<Record> paginate(String collection, int pageNumber, int pageSize) {
@@ -144,6 +165,15 @@ public class MongoKit {
         Record record = new Record();
         record.setColumns(dbObject.toMap());
         return record;
+    }
+    
+    @SuppressWarnings("unchecked")
+    public static List<Record> toRecords(DBCursor dbCursor) {
+    	List<Record> records = new ArrayList<Record>();
+        while (dbCursor.hasNext()) {
+            records.add(toRecord(dbCursor.next()));
+        }
+        return records;
     }
 
     public static BasicDBObject getLikeStr(Object findStr) {

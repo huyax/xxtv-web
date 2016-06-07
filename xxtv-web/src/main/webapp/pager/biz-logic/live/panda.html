@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>熊熊TV - 电影下载</title>
+<title>熊熊TV - ${nick}的直播间</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Cache-Control" content="no-siteapp-platform">
 <meta name="apple-itunes-app" content="app-id=990892583">
@@ -13,13 +13,7 @@
 	rel="stylesheet" type="text/css">
 <script type="text/javascript"
 	src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-<script type="text/javascript">
 
-	function todetail(target) {
-		window.location.href = target;
-	}
-
-</script>
 </head>
 <body>
 	
@@ -36,8 +30,13 @@
 					
 					<div
 						style="position: absolute; top: 40px; left: 20px; text-align: left; font-size: 28px; color: #fff; font-weight: 500; ">
-						
-						<span style="display: table;">${movie.name}</span>
+						<div style="margin-top: -35px; float: left; margin-right: 20px;"
+							class="circle-img">
+							<img
+								src="${pic}"
+								style="height: 90px;">
+						</div>
+						<span style="display: table;">${nick}</span>
 						
 					</div>
 				</div>
@@ -48,45 +47,23 @@
 				style="margin-top: 0px; margin-bottom: 1px; padding-bottom: 1px;">
 				<!-- Where content to be added -->
 				<div class="container xuning-box" style="margin: 40px auto;">
-					<div style=" width:740px;float:left;background-color:#0f0f0f;">
-						<div class="overflow-text" style="margin: 10px;width:720px;">
-						${movie.content}	
-						</div>
-															<!--高速版-->
-<div id="SOHUCS" sid="${movie._id}"></div>
-<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: 'cysfDRSQt',
-        conf: 'prod_6b85ab9dd9b5a8a7e1486e1e3ff2e584'
-    });
-</script>   
-					</div>
-     
-					
-					<div style="width:260px; float:left;">
-						<table class="table-list-small"
-						style=" width:100%;margin-left: 10px ;">
-						<tbody>
-							<tr class="shead" style="height: 28px;">
-								<td>最新影片</td>
-							</tr>
-							<% for(item in list){%>
-							<tr>
-								<td style="cursor: pointer;" onclick="todetail('${base}/movie/detail?id=${item._id}');"><span style="margin-left: 30px;">${item.name}</span></td>
-							</tr>
-							<%}%>
-							
-						</tbody>
-					</table>
+					<div style="margin-left: 95px;">
+						<div
+							style="width: 80px; height: 30px; background-color: transparent; position: absolute; margin-top: 520px; text-align: center; margin-left: 775px; line-height: 30px; color: transparent;"></div>
+						<div
+							style="width: 220px; height: 60px; background-color: transparent; position: absolute; margin-top: 250px; text-align: center; margin-left: 335px; line-height: 30px; color: transparent;"></div>
+						<object type="application/x-shockwave-flash" data="http://s6.pdim.gs/static/4576922d4dab6408.swf?sign=false&amp;width=1&amp;height=1&amp;videoList=true|true|false&amp;videoId=4b0904bbdb295b039405d8a7879ae43b&amp;plflag=2_3&amp;isLogin=false&amp;isAnchor=false&amp;rid=-76120336&roomId=${id}&watermark_switch=1&watermark_loc=1&disableGift=false&flashId=room-player-swf" width="946px" height="580px" id="room-player-swf" style="visibility: visible;"  allowscriptaccess="always"
+							allowfullscreen="true" allowfullscreeninteractive="true">
+						<param name="allowFullScreen" value="true">
+						<param name="wMode" value="Opaque">
+						<param name="allowScriptAccess" value="always">
+						<param name="allowFullScreenInteractive" value="true">
+						<param name="bgColor" value="#000">
+						</object>
 					</div>
 				</div>
-				
 			</div>
-			
-			   
-			
-			
+			<!-- footbar -->
 			<% include("/pager/common/footer.html"){} %>
 		</div>
 	</div>

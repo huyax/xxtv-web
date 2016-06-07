@@ -69,14 +69,14 @@ public class SystemConfig extends JFinalConfig
 		me.add(new EhCachePlugin());
 		
 		//mongodb
-		me.add(new MongodbPlugin("xxtv"));
+		me.add(new MongodbPlugin(getProperty("mongodbUrl"),Integer.parseInt(getProperty("mongodbPort")),getProperty("mongodbName")));
 
-		// 配置ActiveRecord插件
-		ActiveRecordPlugin arp = new ActiveRecordPlugin(druidPlugin);
-		arp.setShowSql(SysConstants.DEBUG);
-		me.add(arp);
-		// 自动扫描bean和数据库表映射
-		new TablePlugin(arp).start();
+//		// 配置ActiveRecord插件
+//		ActiveRecordPlugin arp = new ActiveRecordPlugin(druidPlugin);
+//		arp.setShowSql(SysConstants.DEBUG);
+//		me.add(arp);
+//		// 自动扫描bean和数据库表映射
+//		new TablePlugin(arp).start();
 	}
 
 	/**

@@ -25,6 +25,13 @@ public class MongodbPlugin implements IPlugin {
         this.port = DEFAUL_PORT;
         this.database = database;
     }
+    
+    public MongodbPlugin(String host, int port, String database) {
+        this.host = host;
+        this.port = port;
+        this.database = database;
+    }
+    
     @Override
     public boolean start() {
 

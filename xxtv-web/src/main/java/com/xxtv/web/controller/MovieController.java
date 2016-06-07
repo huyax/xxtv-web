@@ -1,12 +1,16 @@
 package com.xxtv.web.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.jfinal.plugin.activerecord.Page;
+import com.jfinal.plugin.activerecord.Record;
 import com.xxtv.base.common.BaseController;
+import com.xxtv.core.kit.MongoKit;
 import com.xxtv.core.plugin.annotation.Control;
-import com.xxtv.web.model.CatelogModel;
-import com.xxtv.web.model.MovieModel;
+import com.xxtv.tools.DateTools;
+import com.xxtv.web.service.MovieService;
 
 @Control(controllerKey = "/movie")
 public class MovieController extends BaseController {
@@ -14,12 +18,16 @@ public class MovieController extends BaseController {
 	public void index() {
 		setAttr("menu", "movie");
 		int cate = getPara("cate") == null ? 1 : Integer.parseInt(getPara("cate"));
-		setAttr("cates", CatelogModel.dao.getAll());
+		setAttr("cates", MongoKit.findAll("catelogs"));
 		setAttr("cate", cate);
 		int pageNum = getPara("page") == null ? 1 : getParaToInt("page");
 		
-		Page<MovieModel> page = MovieModel.dao.paginate(pageNum, 24,
-				"select movie.*,catelogs.name cateName  ", "from movie left join catelogs on movie.catelog=catelogs.id where movie.catelog="+cate+" order by movie.pub_date desc");
+		Map<String,Object> filter = new HashMap<String, Object>();
+		filter.put("catelog", cate);
+		Page<Record> page = MongoKit.paginate("movie", pageNum, 24, filter);
+		for(Record r : page.getList()){
+			r.set("pub_date", DateTools.formatDate(r.getDate("pub_date")));
+		}
 		setAttr("list", page.getList());
 		setAttr("totalPage", page.getTotalPage());
 		setAttr("currentPage", pageNum);
@@ -28,11 +36,18 @@ public class MovieController extends BaseController {
 	
 	
 	public void detail() {
-		List<MovieModel> movieTop = MovieModel.dao.top();
+		List<Record> movieTop = MovieService.topMovie();
 		setAttr("list", movieTop);
 		setAttr("menu", "movie");
 		int id = getParaToInt("id");
-		setAttr("movie",MovieModel.dao.findById(id));
-		render("movie/index");
+		Map<String,Object> filter = new HashMap<String,Object>();
+		filter.put("_id", id);
+		List<Record> rs = MongoKit.findByCondition("movie",filter);
+		if(null != rs && rs.size() > 0){
+			setAttr("movie",rs.get(0));
+			render("movie/index");
+		}else{
+			render("index");
+		}
 	}
 }

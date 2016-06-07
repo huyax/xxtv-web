@@ -1,10 +1,13 @@
 package com.xxtv.web.controller;
 
-import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.jfinal.kit.StrKit;
 import com.jfinal.plugin.activerecord.Page;
+import com.jfinal.plugin.activerecord.Record;
 import com.xxtv.base.common.BaseController;
+import com.xxtv.core.kit.MongoKit;
 import com.xxtv.core.plugin.annotation.Control;
 import com.xxtv.web.model.MovieModel;
 
@@ -17,14 +20,11 @@ public class SearchController extends BaseController {
 		if (StrKit.isBlank(q)) {
 			redirect("/movie");
 		} else {
-			try {
-				q = new String(q.getBytes("iso8859-1"), "UTF-8");
-			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
 			int pageNum = getPara("page") == null ? 1 : getParaToInt("page");
-			Page<MovieModel> page = MovieModel.dao.search(pageNum, 100, q);
+			Map<String,Object> like = new HashMap<String,Object>();
+			like.put("name", q);
+			Page<Record> page = MongoKit.paginate("movie", pageNum, 100, null, like);
 			setAttr("list", page.getList());
 			setAttr("totalPage", page.getTotalPage());
 			setAttr("currentPage", pageNum);

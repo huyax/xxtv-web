@@ -25,34 +25,25 @@ public class CacheUtil
 		{
 			return (List) obj;
 		}
-		String url = LiveInterfaceModel.dao.getCateInterface(platformKey);
+		String url = "http://capi.douyucdn.cn/api/v1/getColumnDetail";
 		Map result = (Map) JSON.parse(HttpKit.get(url));
 		List mapList = JSON.parseArray("" + result.get("data"), HashMap.class);
 		CacheKit.put(EhcacheConstants.GAME_CATALOG, platformKey, mapList);
 		return mapList;
 	}
-
-	public synchronized static List getYYGameCata(String platformKey)
+	
+	public synchronized static List getPandaGameCata(String platformKey)
 	{
 		Object obj = CacheKit.get(EhcacheConstants.GAME_CATALOG, platformKey);
 		if (obj != null)
 		{
 			return (List) obj;
 		}
-		String url = LiveInterfaceModel.dao.getCateInterface(platformKey);
+		String url = "http://api.m.panda.tv/ajax_get_all_subcate";
 		Map result = (Map) JSON.parse(HttpKit.get(url));
 		List mapList = JSON.parseArray("" + result.get("data"), HashMap.class);
-		List dataList = new ArrayList();
-		/*for (int i = 0; i < mapList.size(); i++)
-		{
-			List tempList = JSON.parseArray("" + ((Map) mapList.get(i)).get("itemList"), HashMap.class);
-			dataList.addAll(tempList);
-		}*/
-		
-		List tempList = JSON.parseArray("" + ((Map) mapList.get(0)).get("itemList"), HashMap.class);
-		dataList.addAll(tempList);
-		
-		CacheKit.put(EhcacheConstants.GAME_CATALOG, platformKey, dataList);
+		CacheKit.put(EhcacheConstants.GAME_CATALOG, platformKey, mapList);
 		return mapList;
 	}
+
 }

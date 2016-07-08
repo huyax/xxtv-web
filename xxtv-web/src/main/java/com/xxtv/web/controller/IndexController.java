@@ -16,6 +16,7 @@ import com.xxtv.core.plugin.annotation.Control;
 import com.xxtv.tools.CacheUtil;
 import com.xxtv.tools.EhcacheConstants;
 import com.xxtv.web.service.MovieService;
+import com.xxtv.web.service.NovelService;
 
 @Control(controllerKey = "/")
 public class IndexController extends BaseController {
@@ -45,6 +46,10 @@ public class IndexController extends BaseController {
 			List mapList2 = JSON.parseArray("" + result2.get("data"), HashMap.class);
 			setAttr("liveTop2", mapList2.subList(0, 8));
 		}
+		//小说
+		List<Record> novelTop = NovelService.topNovel();
+		setAttr("novelTop", novelTop);
+		
 		render("index");
 	}
 

@@ -17,8 +17,8 @@
 	src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">
 	
-function changeTv(name, type) {
-	window.location.href = '${base}/tv?name=' + name +'&type=' + type;
+function changeTv(name) {
+	window.location.href = '${base}/tv?name=' + name;
 }
 </script>
 </head>
@@ -52,20 +52,14 @@ function changeTv(name, type) {
 							style="margin-bottom: 15px; margin-top: 20px;">
 							<div class="title-hori tit-box">
 								电视台<span style="float: right; margin-right: 380px;">
-									<div>
-										<div <%if(type == "卫视"){%>class="nabtn active" <%}else{%>class="nabtn " <%}%> style="padding: 2px 8px;"
-											onclick="changeTv('湖南卫视','卫视');">卫视</div>
-										<div <%if(type == "CCTV"){%>class="nabtn active" <%}else{%>class="nabtn " <%}%> style="padding: 2px 8px;"
-											onclick="changeTv('CCTV-1','CCTV');">CCTV</div>			
-									</div>
 								</span>
 							</div>
 
 
 							<div style="word-break: break-all; width: 230px;">
-								<%for(item in lists){%>
+								<%for(item in tvlist){%>
 								<div <%if(item.name == name){%> class="nabtn active" <%}else{%>class="nabtn " <%}%> style="padding: 2px 2px; width: 100px"
-									onclick="changeTv('${item.name}','${item.type}');">${item.name}</div>
+									onclick="changeTv('${item.name}');">${item.name}</div>
 								<%}%>
 							</div>
 
@@ -75,7 +69,6 @@ function changeTv(name, type) {
 
 							${tv.url}<br><br>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							${tv.description}
 							</div>
 						</div>
 

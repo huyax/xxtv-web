@@ -1,13 +1,14 @@
 package com.xxtv.web.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.jfinal.plugin.activerecord.Page;
+import com.jfinal.plugin.activerecord.Record;
 import com.xxtv.base.common.BaseController;
+import com.xxtv.core.kit.MongoKit;
 import com.xxtv.core.plugin.annotation.Control;
-import com.xxtv.web.model.BookCatelogsModel;
-import com.xxtv.web.model.BookChapterModel;
-import com.xxtv.web.model.BookModel;
 
 /**
  * @author huwei
@@ -16,22 +17,20 @@ import com.xxtv.web.model.BookModel;
  */
 @Control(controllerKey = "/book")
 public class BookController  extends BaseController{
-/*
+
 	public void index() {
 		setAttr("menu", "book");
-		String cate = getPara("cate") == null ? "djph" : getPara("cate");
-		setAttr("cates", BookCatelogsModel.dao.getAll());
+		int cate = getPara("cate") == null ? 1 :Integer.parseInt(getPara("cate"));
+		List<Record> rs = MongoKit.findAll("novel_cats");
+		setAttr("cates", rs);
 		setAttr("cate", cate);
-		System.out.println(cate);
 		int pageNum = getPara("page") == null ? 1 : getParaToInt("page");
-		String sql;
-		if(cate.equals("djph")){
-		sql = "from book  order by hits desc";
-		}else{
-		sql = "from book  where iden='"+cate+"' order by hits desc";
-		}
-		Page<BookModel> page = BookModel.dao.paginate(pageNum, 10,
-				"select  *  ", sql);
+		
+		Map<String,Object> filter = new HashMap<String, Object>();
+		filter.put("catelog", cate);
+		Page<Record> page = MongoKit.paginate("novel_name", pageNum, 10, filter);
+		
+		
 		setAttr("list", page.getList());
 		setAttr("totalPage", page.getTotalPage());
 		setAttr("currentPage", pageNum);
@@ -40,22 +39,33 @@ public class BookController  extends BaseController{
 	public void cateList(){
 		setAttr("menu", "book");
 		int id = getParaToInt("id");
-		List<BookChapterModel> list = BookChapterModel.dao.getBook(id);
-		BookModel book = BookModel.dao.findById(id);
-		if(null != list && list.size() >0){
-		setAttr("book",book);
-		setAttr("description",list.get(0).getStr("desc"));
-		setAttr("total",list.size());
-		setAttr("list",list);
+		Map<String,Object> filter = new HashMap<String, Object>();
+		filter.put("book_id", id);
+		
+		Map<String,Object> filter2 = new HashMap<String, Object>();
+		filter2.put("_id", id);
+		
+		List<Record> rs = MongoKit.findByCondition("novel_text", filter);
+		List<Record> rs2 = MongoKit.findByCondition("novel_name", filter2);
+		
+
+		setAttr("book",rs2.get(0));
+		if (rs != null && rs.size() > 0) {
+			setAttr("total", rs.size());
+			setAttr("totalNums", rs.get(0).get("totalNums"));
+			setAttr("property", rs.get(0).get("property"));
+			setAttr("list", rs);
 		}
 		render("book_cateList");
 	}
    public void chapter(){
 	   setAttr("menu", "book");
 		int id = getParaToInt("id");
-		BookChapterModel model = BookChapterModel.dao.findById(id);
-		setAttr("book",model);
+		Map<String,Object> filter = new HashMap<String, Object>();
+		filter.put("_id", id);
+		List<Record> rs = MongoKit.findByCondition("novel_text", filter);
+		setAttr("book",rs.get(0));
 		render("book/index");
    }
-   */
+   
 }

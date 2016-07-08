@@ -52,7 +52,7 @@
 								小说分类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="float: right; margin-right: 160px;margin-bottom: 10px;">
 									<div>
                                         <% for(item in cates){%>
-											<div <%if(item.iden == cate){%> class="nabtn active" <%}else{%>class="nabtn " <%}%>  style="padding: 2px 8px;" onclick="javascript:change('${item.iden}');">${item.name}</div>
+											<div <%if(item._id == cate){%> class="nabtn active" <%}else{%>class="nabtn " <%}%>  style="padding: 2px 8px;" onclick="javascript:change('${item._id}');">${item.name}</div>
 										<%}%>
 									</div>
 								</span>
@@ -64,21 +64,18 @@
 									<div class="storelistbt5">
 										<ul>
 											<li class="storelistbt5z">${i++}.</li>
-											<li class="storelistbt5a"><a  href="${base}/book/cateList?id=${item.id}" target="_blank"><img src="${item.img}" /></a>
+											<li class="storelistbt5a"><a  href="${base}/book/cateList?id=${item._id}" target="_blank"><img src="${item.icon}" /></a>
 												<div class="top5">
-													<a  href="${base}/book/cateList?id=${item.id}" target="_blank"class="bookname" >${item.name}</a><span class="bookdata">月点击：${item.hits}</span>
+													<a  href="${base}/book/cateList?id=${item._id}" target="_blank"class="bookname" >${item.name}</a>
 												</div>
 												<p>
 													作者：<a
-														href="#" rel="nofollow">${item.author}</a>分类：${item.cate}&nbsp;字数：${item.number}&nbsp;状态：<span
-														class="zhuangtai">已${item.status}</span>&nbsp;
+														href="#" rel="nofollow">${item.author}</a>&nbsp;状态：<span
+														class="zhuangtai">已完结</span>&nbsp;
 												</p>
-												<p>${item.desc}</p>
-												<p>
-													最新章节：${item.end}
-												</p></li>
+												<p>${item.desc}</p></li>
 											<li class="storelistbt5b"><p>
-													<a href="${base}/book/cateList?id=${item.id}" target="_blank">全文阅读</a>
+													<a href="${base}/book/cateList?id=${item._id}" target="_blank">全文阅读</a>
 												</p>
 												</li>
 										</ul>

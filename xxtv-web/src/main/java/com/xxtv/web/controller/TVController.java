@@ -1,11 +1,11 @@
 package com.xxtv.web.controller;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
+import com.jfinal.plugin.activerecord.Record;
 import com.xxtv.base.common.BaseController;
+import com.xxtv.core.kit.MongoKit;
 import com.xxtv.core.plugin.annotation.Control;
-import com.xxtv.web.model.TVModel;
 
 @Control(controllerKey = "/tv")
 public class TVController extends BaseController {
@@ -13,37 +13,17 @@ public class TVController extends BaseController {
 	public void index() {
 		setAttr("menu", "tv");
 		String name = getPara("name");
-		String type = getPara("type");
-		try {
-			if (name != null) {
-				name = new String(name.getBytes("iso8859-1"), "UTF-8");
-			}
-			if (type != null) {
-				type = new String(type.getBytes("iso8859-1"), "UTF-8");
-			}
-			if (name == null && type == null) {
-				name = "湖南卫视";
-				type = "卫视";
-			}
-
-			if (name == null && type != null) {
-				if (type.equals("卫视")) {
-					name = "湖南卫视";
-				}
-				if (type.equals("CCTV")) {
-					name = "CCTV-1";
-				}
-			}
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (name == null) {
+			name = "深圳卫视";
 		}
-		List<TVModel> lists = TVModel.dao.getTvByType(type);
-		TVModel tvModel = TVModel.dao.getTv(name);
+		List<Record> rs = MongoKit.findAll("tv");
+		setAttr("tvlist", rs);
 		setAttr("name", name);
-		setAttr("type", type);
-		setAttr("lists", lists);
-		setAttr("tv", tvModel);
+		for(int i = 0; i < rs.size(); i++){
+			if(name.equals(rs.get(i).get("name"))){
+				setAttr("tv", rs.get(i));
+			}
+		}
 		render("tv");
 	}
 }

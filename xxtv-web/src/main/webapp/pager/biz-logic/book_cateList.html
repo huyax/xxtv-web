@@ -46,7 +46,7 @@
 					<div id="info">
 						<div class="hh">${book.name}</div>
 						<div id="info">
-							作者:<a href="#" rel="nofollow">${book.author}</a>
+							<a href="#" rel="nofollow">${book.author}</a>
 						</div>
 					</div>
 	<DIV id="headlink">
@@ -56,18 +56,17 @@
 				<tr>
 					<td colspan="3" class="vcss"><div class="bcont" align="left">
 							<img class="mlfm"
-								src="${book.img}"
-								border="0" width="120" height="150" align="left" alt="斗破苍穹">《${book.name}》&nbsp;作者：${book.author}&nbsp;&nbsp;状态：已完成&nbsp;&nbsp;类型：${book.cate}<br>
-								${description}
-								<br>最新章节：<a
-											href="#">${book.end}</a>&nbsp;&nbsp;
+								src="${book.icon}"
+								border="0" width="120" height="150" align="left" >《${book.name}》&nbsp;${book.author}&nbsp;&nbsp;字数：${totalNums}&nbsp;&nbsp;性质：${property}<br>
+								${book.desc}
+								<br>
 						</div></td>
 				</tr>
 				<%var i =1; for(item in list){%>
 				<% if(i==1){%>
 				<tr>
 				<%}%>
-				<td class="ccss">&nbsp;<a href="${base}/book/chapter?id=${item.id}">${item.chapter_name}</a></td>
+				<td class="ccss">&nbsp;<a href="${base}/book/chapter?id=${item._id}">${item.name}</a></td>
 				<% if(i%3 == 0){%>
 				</tr><tr>
 				<%}%>
